@@ -1,0 +1,17 @@
+#asi .asi-ladder{display:grid;gap:14px;margin:26px 0;counter-reset:s}
+#asi .asi-step{position:relative;display:grid;grid-template-columns:90px 1fr auto;gap:18px;align-items:center;padding:20px 24px;border-radius:var(--r);border:1px solid var(--line);background:linear-gradient(90deg,rgba(139,92,246,var(--a,.08)),rgba(255,255,255,.03));margin-left:var(--ind,0)}
+#asi .asi-step .tag{font-size:30px;font-weight:800;letter-spacing:-.02em;color:var(--ai2)}
+#asi .asi-step p{color:var(--mute);font-size:15px}
+#asi .asi-step h4{margin-bottom:2px}
+#asi .asi-s1{--a:.08;--ind:0}#asi .asi-s2{--a:.18;--ind:4%}#asi .asi-s3{--a:.32;--ind:8%;border-color:rgba(192,132,252,.5)}
+#asi .asi-form{font-size:34px;line-height:1;margin-bottom:8px}
+#asi .asi-who{font-size:12px;color:var(--ai2);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+#asi .asi-date{font-size:12px;color:#6b7194;margin-top:10px}
+#asi .asi-quote{font-style:italic;color:var(--text)!important;border-left:2px solid var(--ai);padding-left:12px;margin:8px 0}
+#asi h3.asi-h{margin-top:48px;font-size:26px}
+#asi .asi-bar{height:8px;border-radius:99px;background:rgba(255,255,255,.08);margin-top:10px;overflow:hidden}
+#asi .asi-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--ai),var(--q2))}
+#asi .asi-two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+#asi .asi-two ul{padding-left:18px;color:var(--mute);font-size:15px}
+#asi .asi-two h4{margin-bottom:6px}
+@media(max-width:700px){#asi .asi-step{grid-template-columns:1fr;margin-left:0}#asi .asi-two{grid-template-columns:1fr}}

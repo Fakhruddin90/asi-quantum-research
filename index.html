@@ -1,14 +1,946 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Superintelligence × Quantum Computing — Research &amp; Business Guide</title><meta name="description" content="Deep research on how superintelligence and quantum computing relate, and where the business value is."><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
-</head><body><nav class="top"><b>ASI × Quantum</b><a href="#overview">Overview</a><a href="#asi">Superintelligence</a><a href="#quantum">Quantum</a><a href="#relationship">Relationship</a><a href="#business">Business</a><a href="#conclusion">Verdict</a></nav><main><section class="sec" id="overview"><div class="container">STUB hero</div></section>
+<link rel="stylesheet" href="css/sec-asi.css">
+<link rel="stylesheet" href="css/sec-business.css">
+<link rel="stylesheet" href="css/sec-hero.css">
+<link rel="stylesheet" href="css/sec-quantum.css">
+<link rel="stylesheet" href="css/sec-relationship.css">
+</head><body><nav class="top"><b>ASI × Quantum</b><a href="#overview">Overview</a><a href="#asi">Superintelligence</a><a href="#quantum">Quantum</a><a href="#relationship">Relationship</a><a href="#business">Business</a><a href="#conclusion">Verdict</a></nav><main><section class="sec" id="overview"><div class="container">
+<div class="hero-wrap">
+<div>
+<div class="eyebrow ai">Research &amp; business guide · October 2026</div>
+<h1>Superintelligence <span class="grad">×</span> Quantum Computing</h1>
+<p class="hero-sub">Are they connected, or is "quantum AI" mostly a marketing category? A source-labelled look at what is proven, what is plausible, and what is hype, plus where the business value actually sits.</p>
+</div>
+<svg class="hero-vis" viewBox="0 0 340 300" role="img" aria-label="Two overlapping glowing circles: AI in purple and Quantum in cyan, with orbiting dots">
+<defs><radialGradient id="hero-ga"><stop offset="0" stop-color="#8b5cf6" stop-opacity=".75"/><stop offset="1" stop-color="#8b5cf6" stop-opacity=".12"/></radialGradient>
+<radialGradient id="hero-gq"><stop offset="0" stop-color="#06b6d4" stop-opacity=".75"/><stop offset="1" stop-color="#06b6d4" stop-opacity=".12"/></radialGradient>
+<filter id="hero-bl"><feGaussianBlur stdDeviation="3"/></filter></defs>
+<g class="hero-a"><circle cx="125" cy="150" r="82" fill="url(#hero-ga)" filter="url(#hero-bl)"/><circle cx="125" cy="150" r="82" fill="none" stroke="#c084fc" stroke-width="1.5"/></g>
+<g class="hero-b"><circle cx="215" cy="150" r="82" fill="url(#hero-gq)" filter="url(#hero-bl)"/><circle cx="215" cy="150" r="82" fill="none" stroke="#67e8f9" stroke-width="1.5"/></g>
+<g class="hero-orbit"><circle cx="170" cy="40" r="5" fill="#fcd34d"/><circle cx="170" cy="260" r="3.5" fill="#c084fc"/></g>
+<g class="hero-orbit2"><circle cx="40" cy="150" r="4" fill="#67e8f9"/><circle cx="300" cy="150" r="3" fill="#fcd34d"/></g>
+<text x="95" y="155" fill="#fff" text-anchor="middle">AI</text><text x="245" y="155" fill="#fff" text-anchor="middle">QUANTUM</text>
+<text x="170" y="287" fill="#9aa0c0" text-anchor="middle" style="font-size:11px">overlap: security + hybrid HPC</text>
+</svg>
+</div>
 
-<section class="sec" id="asi"><div class="container">STUB asi</div></section>
+<div class="grid g4 reveal">
+<div class="card stat ai"><div class="num grad">0</div><div class="lbl">quantum computers needed by today's frontier AI. It runs on classical GPUs/TPUs.</div><div class="src">Research note 03 · background knowledge</div></div>
+<div class="card stat q"><div class="num" style="color:var(--q2)">&lt;1M</div><div class="lbl">noisy qubits could factor RSA-2048 in under a week (down from 20M in 2019). Today's machines have ~100s of useful qubits.</div><div class="src">Gidney 2025 · published resource estimate</div></div>
+<div class="card stat q"><div class="num" style="color:var(--q2)">28–49%</div><div class="lbl">expert odds of a cryptographically relevant quantum computer within 10 years (51–70% within 15).</div><div class="src">Global Risk Institute 2025 · 26-expert survey, opinion</div></div>
+<div class="card stat ai"><div class="num" style="color:var(--ai2)">Nov 2024</div><div class="lbl">AlphaQubit: an AI decoder beat other decoders on real Google qubit data, but is too slow for real-time use.</div><div class="src">Nature 635 · peer-reviewed</div></div>
+</div>
 
-<section class="sec" id="quantum"><div class="container">STUB quantum</div></section>
+<h2 class="hero-h">In 60 seconds</h2>
+<div class="callout">
+<p class="hero-short">Is there a relationship? Yes, but it is asymmetric, and narrower than the hype suggests.</p>
+<ul class="hero-sum">
+<li><b>ASI does not need quantum.</b> No credible roadmap to AGI/ASI requires a quantum computer, and there is no evidence that general intelligence requires quantum physics. <span class="badge fact">Established</span></li>
+<li><b>AI helps quantum far more than quantum helps AI today.</b> AI already works on error-correction decoding, code and circuit discovery, and compilation. Quantum speedups for machine learning remain mostly theoretical, and classical "dequantization" removed several headline cases. <span class="badge plausible">Mixed: some peer-reviewed, much is preprint or vendor</span></li>
+<li><b>The real overlap is security.</b> Shor's algorithm threatens RSA and elliptic-curve cryptography whether or not AI exists. AI mainly changes the tempo of attack and defence. NIST post-quantum standards are final. <span class="badge fact">Established</span></li>
+<li><b>The other overlap is hybrid HPC.</b> GPUs are becoming the control, decoding and simulation layer of quantum computers (NVIDIA NVQLink, CUDA-Q). Those are vendor-announced products. <span class="badge claim">Vendor claim</span></li>
+<li><b>Hype to discount:</b> "quantum will train LLMs or deliver AGI", and "quantum will fix AI's energy bill". <span class="badge hype">Unsupported</span></li>
+</ul>
+</div>
 
-<section class="sec" id="relationship"><div class="container">STUB relationship</div></section>
+<h2 class="hero-h">Key takeaways</h2>
+<div class="grid g3 reveal">
+<div class="card ai"><div class="eyebrow ai">Takeaway 1</div><h3>Decoupled by default</h3><p>Frontier AI progresses on classical silicon. Quantum matures on its own timeline: IBM, Quantinuum and Google claim fault tolerance around 2029–2033. The research calls decoupling the most likely near-term scenario.</p></div>
+<div class="card q"><div class="eyebrow q">Takeaway 2</div><h3>AI is quantum's best tool</h3><p>The strongest evidence points from AI to quantum. Examples: AlphaQubit decoding, and IBM's LLM-guided search that found 465 candidate error-correcting codes (IBM says their practical value is still to be investigated). Many 2026 results are preprints or vendor reports.</p></div>
+<div class="card biz"><div class="eyebrow biz">Takeaway 3</div><h3>Act on security, not on hype</h3><p>The actionable overlap is cryptography. Finish post-quantum migration, build crypto-agility, and treat long-lived secrets as already exposed to harvest-now-decrypt-later. Migration complexity, not cryptanalysis, is the bottleneck for most organizations.</p></div>
+</div>
+<p class="src-note">Source: research note 03 (relationship). Labels follow its evidence tags: peer-reviewed or primary, vendor claim, or background knowledge. Fault-tolerant quantum machines at useful scale do not yet exist.</p>
+</div></section>
 
-<section class="sec" id="business"><div class="container">STUB business</div></section>
+<section class="sec" id="asi"><div class="container">
+<div class="eyebrow ai reveal">01 · Superintelligence</div>
+<h2 class="reveal">Artificial superintelligence: <span class="grad">hypothetical, but being actively forecast</span></h2>
+<p class="lead reveal">Where the field stands as of October 2026: what ANI, AGI and ASI actually mean, who is claiming what and when, the physical limits of scaling, and how regulators are responding. Each claim is tagged as fact, claim or speculation.</p>
 
-<section class="sec" id="conclusion"><div class="container">STUB conclusion</div></section>
+<h3 class="asi-h">From narrow AI to superintelligence</h3>
+<div class="asi-ladder reveal">
+  <div class="asi-step asi-s1"><div class="tag">ANI</div><div><h4>Narrow AI</h4><p>Systems that perform specific tasks: chess, translation, protein folding. Everything deployed historically.</p></div><span class="badge fact">Fact</span></div>
+  <div class="asi-step asi-s2"><div class="tag">AGI</div><div><h4>Artificial General Intelligence</h4><p>Human-level cognition across most tasks. There is no agreed test and definitions differ by lab; Google DeepMind has published a levels-of-AGI framework (breadth × depth × autonomy). Not achieved by consensus. The International AI Safety Report 2026 calls frontier capability <em>"jagged"</em>: strong at expert-level maths and code, weak at some simple tasks.</p></div><span class="badge fact">Not achieved</span></div>
+  <div class="asi-step asi-s3"><div class="tag">ASI</div><div><h4>Artificial Superintelligence</h4><p>Bostrom (2014): <em>"any intellect that greatly exceeds the cognitive performance of humans in virtually all domains of interest."</em> It does not exist.</p></div><span class="badge hype">Speculative</span></div>
+</div>
+<p class="src-note">Forecasters use operational definitions too: AI Impacts' "high-level machine intelligence" (unaided machines outperform humans at every task, more cheaply); AI Futures Project's "Automated Coder" → superhuman coder → ASI milestones. OpenAI describes itself as "a superintelligence research company".</p>
+
+<h3 class="asi-h">Bostrom's three forms of superintelligence</h3>
+<div class="grid g3">
+  <div class="card ai reveal"><div class="asi-form">⚡</div><h3>Speed</h3><p>A human-like mind running much faster.</p></div>
+  <div class="card ai reveal"><div class="asi-form">🧩</div><h3>Collective</h3><p>Many minds aggregated into a larger whole.</p></div>
+  <div class="card ai reveal"><div class="asi-form">🧠</div><h3>Quality</h3><p>A mind that is qualitatively smarter, not just faster or more numerous.</p></div>
+</div>
+<div class="callout reveal">Amodei's <strong>"country of geniuses in a datacenter"</strong> is essentially a speed + collective scenario in Bostrom's terms.</div>
+
+<h3 class="asi-h">Key thinkers and their dated positions</h3>
+<div class="grid g3">
+  <div class="card ai reveal"><div class="asi-who">Nick Bostrom</div><p><em>Superintelligence: Paths, Dangers, Strategies</em> defined the forms of superintelligence and framed the control problem.</p><div class="asi-date">2014 · book</div></div>
+  <div class="card ai reveal"><div class="asi-who">Ray Kurzweil</div><p>AGI-level AI by <strong>2029</strong>, human–machine merger / Singularity by <strong>2045</strong>.</p><div class="asi-date">25 Jun 2024 · <em>The Singularity Is Nearer</em> · <span class="badge claim">Claim</span></div></div>
+  <div class="card ai reveal"><div class="asi-who">Geoffrey Hinton</div><p>Dec 2024: 10–20% odds of extinction over 30 years. On BBC Newsnight he said a 10% chance within a decade <em>"seems not an unreasonable estimate… but nobody really knows how to give a sensible estimate."</em></p><div class="asi-date">27 Dec 2024; 9 Sep 2026 (via Anadolu, secondary) · <span class="badge claim">Subjective probability</span></div></div>
+  <div class="card ai reveal"><div class="asi-who">Sam Altman · OpenAI</div><p class="asi-quote">"We are past the event horizon; the takeoff has started. Humanity is close to building digital superintelligence."</p><p>Predicts agents doing cognitive work in 2025, systems that "figure out novel insights" in 2026, real-world robots in 2027.</p><div class="asi-date">10 Jun 2025 · "The Gentle Singularity" · <span class="badge claim">Claim</span></div></div>
+  <div class="card ai reveal"><div class="asi-who">Dario Amodei · Anthropic</div><p>Powerful AI may arrive within 1–2 years: a "country of geniuses in a datacenter" (~50 million instances at ~10× human speed) around 2027. Calls it potentially "the single most serious national security threat" in a century. At Davos he said AI could replace software engineers' work within a year and eliminate half of entry-level white-collar jobs within five years.</p><div class="asi-date">Oct 2024 (<em>Machines of Loving Grace</em>); 26 Jan 2026 (<em>The Adolescence of Technology</em>) · <span class="badge claim">Claim</span></div></div>
+  <div class="card ai reveal"><div class="asi-who">Demis Hassabis · Google DeepMind</div><p>Timeline compression: AGI in "5–10 years" (Dec 2025) → ~2030 (May 2026) → "2–3 years" / "2028 or 2029" in a WSJ Magazine interview. He acknowledged that some urgent language is meant to push governments to take the technology seriously.</p><div class="asi-date">2025–2026 · WSJ interview via Tom's Guide/Yahoo (secondary) · <span class="badge claim">Claim</span></div></div>
+  <div class="card ai reveal"><div class="asi-who">Ilya Sutskever · SSI</div><p>The "age of scaling" (2020–25) is giving way to an "age of research… just with big computers". Pre-training data is finite, and models "generalize dramatically worse than people".</p><div class="asi-date">Nov 2025 · Dwarkesh Podcast · <span class="badge claim">Claim</span></div></div>
+</div>
+<p class="src-note">Not published here: reported SSI funding and valuation figures (seen only on low-tier aggregator sites, <strong>unverified</strong>), and a "5 to 20 years" superintelligence timeline attributed to Sutskever (secondary summary only).</p>
+
+<h3 class="asi-h">Frontier AI today: compute, energy, capability</h3>
+<div class="grid g4">
+  <div class="card stat reveal"><div class="num grad">4–5×</div><div class="lbl">per year growth in frontier training compute</div><div class="src">Epoch AI · <span class="badge fact">Fact</span></div></div>
+  <div class="card stat reveal"><div class="num grad">~3.5×</div><div class="lbl">per year growth in training cost (as of Feb 2026). Roughly $2M for GPT-3 vs ~$500M for Grok 4</div><div class="src">Epoch AI (cost figures via secondary summary) · <span class="badge fact">Fact</span></div></div>
+  <div class="card stat reveal"><div class="num grad">&gt;100 MW</div><div class="lbl">already drawn by the largest frontier training runs; power growing ~2.2–2.9×/yr</div><div class="src">Epoch / EPRI · <span class="badge fact">Fact</span></div></div>
+  <div class="card stat reveal"><div class="num grad">4–16 GW</div><div class="lbl">projected for the largest single runs by 2030</div><div class="src">Epoch / EPRI · <span class="badge plausible">Projection</span></div></div>
+</div>
+<div class="grid g2">
+  <div class="card ai reveal">
+    <h3>IEA: data-centre electricity</h3>
+    <p>Generation for data centres, base case:</p>
+    <div class="asi-two" style="margin-top:12px">
+      <div><div class="num grad" style="font-size:34px;font-weight:800">460 TWh</div><p>2024</p><div class="asi-bar"><i style="width:35%"></i></div></div>
+      <div><div class="num grad" style="font-size:34px;font-weight:800">&gt;1,000 TWh</div><p>2030 (1,300 TWh by 2035)</p><div class="asi-bar"><i style="width:77%"></i></div></div>
+    </div>
+    <p class="src-note">IEA, Energy &amp; AI · <span class="badge fact">Fact</span> (bars scaled to the 2035 value of 1,300 TWh)</p>
+  </div>
+  <div class="card ai reveal">
+    <h3>Can scaling continue to 2030?</h3>
+    <p>Epoch finds ~2e29 FLOP training runs by 2030 feasible (GPT-4 ≈ 2e25 FLOP). Binding constraints: <strong>power first, then chip production</strong>. More than 100 GW of AI capacity worldwide (&gt;50 GW in the US, ~5% of US generation capacity) is plausible by 2030. Whether spending continues is speculation.</p>
+    <p class="src-note">Epoch AI; Epoch/EPRI · <span class="badge plausible">Extrapolation</span></p>
+  </div>
+  <div class="card ai reveal">
+    <h3>Reasoning models &amp; agents</h3>
+    <ul>
+      <li>Inference-time scaling drove "particularly large" gains in maths, software engineering and science over the past year (International AI Safety Report 2026).</li>
+      <li>OpenAI reports gold-medal-level performance at the IMO and IOI (2025). This is OpenAI's own evaluation, not an IMO-coordinated certification at the time.</li>
+      <li>METR time horizon (task length an AI completes at 50% reliability): doubling roughly every ~7 months over ~6 years, ~4–5 months since 2024. METR's Time Horizon 1.1 (29 Jan 2026) measured o3 at ≈ 2 hours (116–119 min).</li>
+      <li>Agents still struggle to recover from basic errors in long workflows.</li>
+    </ul>
+  </div>
+  <div class="card ai reveal">
+    <h3>Infrastructure build-out</h3>
+    <p>OpenAI's "Stargate" is a multi-site build-out, for example a 1 GW campus in Michigan (Oracle / Related Digital) and an SB Energy partnership (9 Jan 2026). The International AI Safety Report notes developers have announced hundreds of billions of dollars of data-centre investment.</p>
+    <p class="src-note"><span class="badge fact">Fact</span> · progress through 2030 remains uncertain; trends are consistent with continued improvement.</p>
+  </div>
+</div>
+<div class="callout reveal"><strong>The central technical disagreement.</strong> Altman and Amodei hold that the current trajectory suffices. Sutskever argues pure scaling is hitting limits and that new ideas (better generalization, sample efficiency) are needed. This is unresolved. Energy and chips are the physical bottleneck, which is the natural bridge to the quantum-computing sections: whether energy-efficient or fundamentally different compute can help is open and speculative.</div>
+
+<h4 style="margin-top:28px">Main technical routes to ASI</h4>
+<div class="grid g3">
+  <div class="card ai reveal"><h4>1 · Scaled pre-training + RL/reasoning</h4><p>Transformer LLMs with inference-time compute. The dominant strategy at OpenAI, Anthropic and Google DeepMind.</p></div>
+  <div class="card ai reveal"><h4>2 · Agentic systems / AI R&amp;D automation</h4><p>AI doing AI research, the "intelligence explosion" route. AI Futures models it as coding time-horizon → Automated Coder → superhuman researcher.</p></div>
+  <div class="card ai reveal"><h4>3 · New learning paradigms</h4><p>Better generalization, continual learning, human-like sample efficiency (the SSI "age of research" thesis).</p></div>
+  <div class="card ai reveal"><h4>4 · Embodied &amp; scientific AI</h4><p>Altman expects robots in 2027; OpenAI's "FrontierScience" evaluates research tasks.</p></div>
+  <div class="card ai reveal"><h4>5 · Brain-inspired, hybrid, quantum-accelerated</h4><p><span class="badge hype">Speculative</span> Covered in the quantum and relationship sections.</p></div>
+</div>
+
+<h3 class="asi-h">Timeline forecasts: who says what</h3>
+<div class="tablewrap reveal"><table>
+<thead><tr><th>Source</th><th>Forecast</th><th>Type</th></tr></thead>
+<tbody>
+<tr><td>AI Impacts survey, 2,778 AI authors (Oct 2023)</td><td>10% chance by 2027, <strong>50% by 2047</strong> that unaided machines beat humans at every task (13 years earlier than the 2022 survey). 38–51% gave ≥10% to extinction-level outcomes, depending on the question.</td><td><span class="badge fact">Survey result</span> <span class="badge plausible">Dated</span></td></tr>
+<tr><td>Metaculus community</td><td>General-AI median ≈ April 2031 (range 2028–2037) as of 24 Sep 2026, per a secondary tracker. Verify live.</td><td><span class="badge claim">Forecast</span></td></tr>
+<tr><td>AI Futures Project (AI 2027; model revamped 31 Dec 2025)</td><td>Scenario with superhuman coder in Mar 2027 and ASI about a year later. Authors present it as a forecast model, not a certainty.</td><td><span class="badge hype">Scenario</span></td></tr>
+<tr><td>Anthropic (Amodei)</td><td>"Powerful AI" possibly 2026–27</td><td><span class="badge claim">Claim</span></td></tr>
+<tr><td>OpenAI (Altman)</td><td>Superintelligence "close"; novel insights in 2026</td><td><span class="badge claim">Claim</span></td></tr>
+<tr><td>Google DeepMind (Hassabis)</td><td>AGI ~2028–2030</td><td><span class="badge claim">Claim</span></td></tr>
+<tr><td>Kurzweil</td><td>AGI 2029, Singularity 2045</td><td><span class="badge claim">Claim</span></td></tr>
+</tbody></table></div>
+<div class="callout warn reveal"><strong>Reading guide.</strong> Lab-leader timelines have shortened year on year and carry commercial and fundraising incentives. The only large academic survey is three years old and predates reasoning models. Treat every row as speculation. Lab timelines cluster around 2027–2031, independent forecaster medians sit near 2031, and the survey median is 2047.</div>
+
+<h3 class="asi-h">Risks and alignment</h3>
+<div class="grid g3">
+  <div class="card ai reveal"><h3>Three risk families</h3><p>The International AI Safety Report 2026 groups risks into <strong>misuse</strong>, <strong>malfunctions</strong> and <strong>systemic disruption</strong>. It recommends "defence-in-depth" (layered safeguards), notes open-weight models cannot be recalled and have easily removed safeguards, and urges societal resilience measures.</p><span class="badge fact">Fact</span></div>
+  <div class="card ai reveal"><h3>Core ASI arguments</h3><p>Bostrom's control problem and Hinton's point that we have "never created beings smarter than us": loss of control, power concentration, bio and cyber misuse. Hinton warns AI could design viruses or cyberattacks and cause "chaos just by talking to people".</p><span class="badge hype">Speculative / claim</span></div>
+  <div class="card ai reveal"><h3>Amodei's categories</h3><ul><li>Autonomous AI takeover</li><li>Misuse by bad actors (e.g. terrorists with "mercenary" AI)</li><li>Economic disruption and mass unemployment</li><li>Indirect destabilization</li></ul><span class="badge claim">Claim</span></div>
+  <div class="card ai reveal"><h3>Alignment research directions</h3><p>Scalable oversight, interpretability, evaluations (METR, UK AISI), red-teaming, control and monitoring. These are described only generally in the Safety Report; specific lab methods were not individually verified.</p></div>
+  <div class="card ai reveal"><h3>Calls for a prohibition</h3><p>The Future of Life Institute's "Statement on Superintelligence" (22 Oct 2025) calls for prohibiting superintelligence development until there is broad scientific consensus on safety and strong public buy-in. About 65,000 signatories joined within days.</p><span class="badge fact">Fact</span></div>
+  <div class="card ai reveal"><h3>Insider dissent</h3><p>One report (Sep 2026) says a young researcher resigned from Anthropic, alleging OpenAI and Anthropic are "racing straight to self-improving superintelligence". Single report; treat with caution.</p><span class="badge plausible">Single source</span></div>
+</div>
+
+<h3 class="asi-h">Governance and regulation</h3>
+<div class="grid g3">
+  <div class="card ai reveal"><h3>🇪🇺 EU AI Act</h3><p>Regulation 2024/1689. Prohibited practices (Feb 2025) and general-purpose AI model rules (Aug 2025) apply. Commission enforcement powers over GPAI and Art. 50 transparency obligations apply from <strong>2 Aug 2026</strong>.</p><p style="margin-top:8px">The Digital Omnibus on AI (Reg. 2026/1744, in force 27 Jul 2026) delayed high-risk obligations to 2 Dec 2027 (Annex III) and 2 Aug 2028 (Annex I). Art. 50 breaches carry fines up to €15M / 3%.</p></div>
+  <div class="card ai reveal"><h3>🇺🇸 US federal</h3><p>EO 14179 (23 Jan 2025) removed the Biden-era AI order. EO 14365 (11 Dec 2025, "Ensuring a National Policy Framework for AI") sets up a DOJ AI Litigation Task Force to challenge state AI laws and conditions some BEAD funds. It cannot itself invalidate state laws.</p></div>
+  <div class="card ai reveal"><h3>California SB 53</h3><p>Transparency in Frontier AI Act, signed 29 Sep 2025: the first US state law expressly regulating frontier developers. Disclosure / safety-framework and incident-reporting design; successor to the vetoed SB 1047. The legal challenge and preemption fight is ongoing and unresolved.</p></div>
+  <div class="card ai reveal"><h3>International</h3><p>The International AI Safety Report (Bengio-led, UK-hosted, 2nd edition Feb 2026; 100+ experts, 30+ countries) informs policy but is not binding. As far as this research found, no binding international regime on superintelligence exists.</p></div>
+  <div class="card ai reveal"><h3>Civil society</h3><p>The FLI prohibition statement (Oct 2025) is the most visible call to stop superintelligence development outright.</p></div>
+  <div class="card ai reveal"><h3>Direction of travel</h3><p>Governance is fragmenting: the EU is delaying high-risk rules, the US federal government is pushing preemption against state frontier-AI laws, and some groups want outright prohibition.</p></div>
+</div>
+<p class="src-note">Not covered: Chinese governance, UN processes, and GPAI-model fine levels under the EU Act (not verified).</p>
+
+<div class="callout warn reveal">
+  <h3>What we know vs. what we speculate</h3>
+  <div class="asi-two" style="margin-top:10px">
+    <div><h4><span class="badge fact">Known</span></h4><ul>
+      <li>ASI does not exist; AGI is not achieved by consensus.</li>
+      <li>Frontier training compute grows ~4–5×/yr; data-centre electricity is projected to pass 1,000 TWh by 2030 (IEA).</li>
+      <li>Reasoning models have made real gains; capability stays jagged.</li>
+      <li>Regulation exists (EU AI Act, California SB 53) but is unsettled and fragmenting.</li>
+    </ul></div>
+    <div><h4><span class="badge hype">Speculative or contested</span></h4><ul>
+      <li>When, or whether, AGI and ASI arrive. Forecasts range from 2027 to 2047+.</li>
+      <li>Whether scaling alone suffices, or new research paradigms are needed.</li>
+      <li>Extinction probabilities. They are subjective and even Hinton says nobody knows.</li>
+      <li>Whether spending, power and chips keep up to 2030.</li>
+      <li>Any role for quantum computing in reaching ASI.</li>
+    </ul></div>
+  </div>
+  <p class="src-note">Several 2026 items rest on secondary outlets (Hassabis WSJ interview, Metaculus median, Hinton/Newsnight via Anadolu). Verify against primary sources before relying on them.</p>
+</div>
+
+<details>
+  <summary>Sources</summary>
+  <p style="line-height:2">
+  <a href="https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026">International AI Safety Report 2026</a> ·
+  <a href="https://epochai.org/blog/can-ai-scaling-continue-through-2030">Epoch: Can AI scaling continue through 2030?</a> ·
+  <a href="http://epoch.ai/blog/power-demands-of-frontier-ai-training">Epoch/EPRI: power demands</a> ·
+  <a href="https://iea.org/reports/energy-and-ai/energy-supply-for-ai">IEA: Energy &amp; AI</a> ·
+  <a href="https://metr.org/blog/2026-01-29-time-horizon-1-1/">METR Time Horizon 1.1</a> ·
+  <a href="https://arxiv.org/pdf/2401.02843.pdf">AI Impacts 2023 survey</a> ·
+  <a href="https://blog.samaltman.com/the-gentle-singularity">Altman: The Gentle Singularity</a> ·
+  <a href="https://www.darioamodei.com/essay/the-adolescence-of-technology">Amodei: The Adolescence of Technology</a> ·
+  <a href="https://fortune.com/2026/01/27/country-of-geniuses-anthropic-dario-amodei-50-million-nobel-prize-winners">Fortune on Amodei</a> ·
+  <a href="https://tech.yahoo.com/ai/gemini/articles/google-deepminds-demis-hassabis-predicts-145225960.html">Hassabis (via Yahoo)</a> ·
+  <a href="https://pod.wave.co/podcast/dwarkesh-podcast-3/ilya-sutskever-were-moving-from-the-age-of-scaling-to-the-age-of-research">Sutskever on Dwarkesh</a> ·
+  <a href="https://en.wikipedia.org/wiki/The_Singularity_Is_Nearer">Kurzweil: The Singularity Is Nearer</a> ·
+  <a href="https://theguardian.com/technology/2024/dec/27/godfather-of-ai-raises-odds-of-the-technology-wiping-out-humanity-over-next-30-years">Hinton (Guardian, 2024)</a> ·
+  <a href="https://h.aa.com.tr/en/world/ai-pioneer-geoffrey-hinton-says-10-risk-of-human-extinction-from-ai-not-unreasonable/4053063">Hinton (Anadolu, 2026)</a> ·
+  <a href="https://ai-2027.com/supplements/timelines-forecast">AI 2027 timelines</a> ·
+  <a href="https://publicism.info/philosophy/superintelligence/4.html">Bostrom: Forms of superintelligence</a> ·
+  <a href="https://openai.com/index/stargate-michigan-data-center">OpenAI Stargate Michigan</a> ·
+  <a href="https://superintelligence-statement.org/">FLI Statement on Superintelligence</a> ·
+  <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng">EU AI Act text</a> ·
+  <a href="https://www.aiacto.eu/en/blog/ai-act-what-changes-august-2-2026">EU AI Act Aug 2026 status</a> ·
+  <a href="https://casrai.org/guides/trump-ai-executive-orders-eo-14179-eo-14365">US EO 14179 / 14365</a> ·
+  <a href="https://gov.ca.gov/2025/09/29/governor-newsom-signs-sb-53-advancing-californias-world-leading-artificial-intelligence-industry">Newsom signs SB 53</a> ·
+  <a href="https://brookings.edu/articles/what-is-californias-ai-safety-law">Brookings on SB 53</a>
+  </p>
+  <p class="src-note">Omitted as unverified: SSI valuation / Nvidia investment reports and a secondary "89-day" METR doubling claim.</p>
+</details>
+</div></section>
+
+<section class="sec" id="quantum"><div class="container">
+<div class="eyebrow q">Part 2 · Quantum computing</div>
+<h2>Quantum computing: real progress, <span class="grad">unproven payoff</span></h2>
+<p class="lead">Status as of late October 2026. Error correction has gone from "can logical error fall at all?" to dozens of logical qubits. Useful, large-scale machines are still targets, not deliveries. Labels used below: <span class="badge fact">primary source</span> <span class="badge claim">vendor claim</span> <span class="badge plausible">secondary / press</span></p>
+
+<div class="grid g4">
+  <div class="card q stat"><div class="num">~10⁻²–10⁻⁴</div><div class="lbl">physical gate error today</div><div class="src">textbook background</div></div>
+  <div class="card q stat"><div class="num">10⁹–10¹²</div><div class="lbl">reliable operations useful algorithms need</div><div class="src">textbook background</div></div>
+  <div class="card q stat"><div class="num">&lt;1M</div><div class="lbl">noisy qubits for RSA-2048 in under a week (Gidney, May 2025), down from 20M in 2019</div><div class="src">arXiv 2505.15917</div></div>
+  <div class="card q stat"><div class="num">2029</div><div class="lbl">where many vendor roadmaps cluster for first fault-tolerant machines (a target, not a forecast)</div><div class="src">author synthesis</div></div>
+</div>
+
+<!-- FUNDAMENTALS -->
+<h2 class="qc-h">1 · The fundamentals, in plain English</h2>
+<div class="grid g2">
+  <div class="card q">
+    <h3>Qubit &amp; superposition</h3>
+    <p>A qubit is a two-level quantum system. Its state is <b>a|0⟩ + b|1⟩</b>, and measuring it returns 0 or 1 with probabilities |a|² and |b|². <b>n</b> qubits carry 2ⁿ amplitudes.</p>
+    <p style="margin-top:8px">This is <b>not</b> "trying every answer at once." You read out only n classical bits. Useful algorithms use <b>interference</b> to boost the amplitudes of correct answers, so any speedup comes from structure in the problem.</p>
+  </div>
+  <div class="card q">
+    <h3>Entanglement &amp; gates</h3>
+    <p>Entangled states can't be written as a product of single-qubit states. They give correlations with no classical analogue, and algorithms consume them as a resource.</p>
+    <p style="margin-top:8px">Gates are unitary operations. Single-qubit gates plus one two-qubit entangler (CNOT/CZ) are universal. Clifford gates are easy to simulate classically. Non-Clifford gates (T, Toffoli) make circuits hard to simulate and dominate fault-tolerant cost.</p>
+    <div class="qc-gates"><span class="qc-gate">H</span><span class="qc-gate">X</span><span class="qc-gate">Z</span><span class="qc-gate">S</span><span class="qc-gate">T</span><span class="qc-gate">●─⊕</span></div>
+  </div>
+</div>
+
+<div class="card q">
+  <div class="qc-viz">
+    <svg width="560" height="210" viewBox="0 0 560 210" role="img" aria-label="Qubit Bloch sphere, a Bell-state circuit, and many physical qubits forming one logical qubit">
+      <defs><linearGradient id="qcg" x1="0" x2="1"><stop offset="0" stop-color="#06b6d4"/><stop offset="1" stop-color="#67e8f9"/></linearGradient></defs>
+      <g transform="translate(75,95)">
+        <circle r="55" fill="rgba(6,182,212,.06)" stroke="#67e8f9" stroke-opacity=".6"/>
+        <ellipse rx="55" ry="16" fill="none" stroke="#67e8f9" stroke-opacity=".35" stroke-dasharray="3 3"/>
+        <g class="qc-bloch-ring"><ellipse rx="55" ry="20" fill="none" stroke="#06b6d4" stroke-opacity=".5"/></g>
+        <line x1="0" y1="0" x2="30" y2="-40" stroke="url(#qcg)" stroke-width="3"/>
+        <circle cx="30" cy="-40" r="5" fill="#67e8f9"/>
+        <text x="-4" y="-64" fill="#9aa0c0" font-size="12">|0⟩</text><text x="-4" y="78" fill="#9aa0c0" font-size="12">|1⟩</text>
+        <text x="-48" y="106" fill="#9aa0c0" font-size="12">qubit state</text>
+      </g>
+      <g transform="translate(200,40)" font-family="ui-monospace,monospace" font-size="12">
+        <line x1="0" y1="20" x2="150" y2="20" stroke="#9aa0c0"/><line x1="0" y1="90" x2="150" y2="90" stroke="#9aa0c0"/>
+        <text x="-8" y="-4" fill="#9aa0c0" font-family="Inter,sans-serif">entangling circuit</text>
+        <rect x="20" y="6" width="28" height="28" rx="6" fill="rgba(6,182,212,.15)" stroke="#06b6d4"/><text x="29" y="25" fill="#67e8f9">H</text>
+        <line x1="100" y1="20" x2="100" y2="90" stroke="#67e8f9" stroke-width="2"/><circle cx="100" cy="20" r="5" fill="#67e8f9"/>
+        <circle cx="100" cy="90" r="11" fill="none" stroke="#67e8f9" stroke-width="2"/><line x1="100" y1="79" x2="100" y2="101" stroke="#67e8f9" stroke-width="2"/>
+        <text x="-6" y="14" fill="#9aa0c0">|0⟩</text><text x="-6" y="84" fill="#9aa0c0">|0⟩</text>
+        <text x="20" y="140" fill="#9aa0c0" font-family="Inter,sans-serif">→ correlated 0/0 or 1/1</text>
+      </g>
+      <g transform="translate(400,40)">
+        <text x="0" y="-4" fill="#9aa0c0" font-size="12">error correction</text>
+        <g fill="#06b6d4">
+          <circle class="qc-pulse" cx="20" cy="20" r="6"/><circle cx="60" cy="20" r="6"/><circle class="qc-pulse" cx="100" cy="20" r="6"/>
+          <circle cx="20" cy="60" r="6"/><circle class="qc-pulse" cx="60" cy="60" r="6"/><circle cx="100" cy="60" r="6"/>
+          <circle class="qc-pulse" cx="20" cy="100" r="6"/><circle cx="60" cy="100" r="6"/><circle class="qc-pulse" cx="100" cy="100" r="6"/>
+        </g>
+        <rect x="6" y="6" width="108" height="108" rx="12" fill="none" stroke="#67e8f9" stroke-opacity=".6" stroke-dasharray="4 4"/>
+        <text x="4" y="140" fill="#9aa0c0" font-size="12">many physical = 1 logical</text>
+      </g>
+    </svg>
+  </div>
+  <p class="qc-note" style="text-align:center">Schematic illustration, not to scale. Bloch sphere (one qubit) · Bell-pair circuit · physical qubits encoding one logical qubit.</p>
+</div>
+
+<div class="callout q"><b>Why error correction is the central problem.</b> Physical gates fail roughly 1 in 10² to 1 in 10⁴ operations, but useful algorithms need about 10⁹–10¹² reliable ones. Quantum error correction (QEC) encodes one <i>logical</i> qubit in many <i>physical</i> qubits and repeatedly measures error syndromes. It works only when physical error is below a code-dependent threshold (about 1% for the surface code). Better metrics than raw qubit count: two-qubit gate fidelity, coherence time, connectivity, gate speed, and logical error rate per cycle.</div>
+
+<!-- HARDWARE -->
+<h2 class="qc-h">2 · Hardware modalities compared</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Modality</th><th>Strengths</th><th>Weaknesses</th><th>Players</th></tr></thead>
+<tbody>
+<tr><td><b>Superconducting</b></td><td>Fast gates (ns–µs); mature chip fabrication</td><td>Dilution fridge (~15 mK); fixed 2D connectivity; wiring and scaling</td><td>IBM, Google, Rigetti, IQM, Alice&amp;Bob</td></tr>
+<tr><td><b>Trapped ion</b></td><td>Highest fidelities; all-to-all connectivity (QCCD shuttling); long coherence</td><td>Slow gates (µs–ms); harder to scale</td><td>Quantinuum, IonQ</td></tr>
+<tr><td><b>Neutral atom</b></td><td>Thousands of atoms; reconfigurable with optical tweezers</td><td>Slow cycle times; atom loss; hard mid-circuit readout</td><td>QuEra, Atom Computing, Pasqal, Infleqtion, Google (new program)</td></tr>
+<tr><td><b>Photonic</b></td><td>Room-temperature components; uses chip foundries; networking-friendly</td><td>Photon loss; probabilistic gates; huge component counts</td><td>PsiQuantum, Xanadu, Quandela</td></tr>
+<tr><td><b>Topological (Majorana)</b></td><td>Built-in error protection, in theory</td><td>Not yet convincingly demonstrated</td><td>Microsoft</td></tr>
+<tr><td><b>Annealing</b> (not gate-model)</td><td>4,400+ qubits; commercially sold</td><td>Optimization/sampling only; no universal computation</td><td>D-Wave</td></tr>
+<tr><td><b>Spin / silicon</b></td><td>CMOS-compatible</td><td>Early</td><td>Diraq, Intel</td></tr>
+</tbody></table></div>
+
+<!-- COMPANIES -->
+<h2 class="qc-h">3 · State of play by company</h2>
+<div class="grid g3">
+  <div class="card q">
+    <div class="qc-co"><h3>Google Quantum AI</h3><span class="qc-tag">Superconducting</span></div>
+    <ul>
+      <li><b>Willow</b> (105 qubits, Dec 2024, <i>Nature</i>): surface-code logical error fell by Λ≈2.14 per distance step (3→5→7). At d=7 (101 physical qubits): 0.143%/cycle, and the logical qubit outlived the best physical qubit by 2.4×. <span class="badge fact">primary</span></li>
+      <li><b>Quantum Echoes</b> (OTOC, <i>Nature</i>, 22 Oct 2025): claimed first <i>verifiable</i> advantage, ~13,000× faster than the best classical algorithm for that task. It is a physics benchmark, not a commercially useful computation. <span class="badge claim">vendor claim</span></li>
+      <li>Mar 2026: set a <b>2029</b> deadline for its own PQC migration. <span class="badge fact">primary</span></li>
+      <li>Mar 2026: hired Adam Kaufman (JILA) to lead a neutral-atom program. <span class="badge plausible">secondary</span></li>
+      <li>No new 2026 fault-tolerance date found.</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>IBM</h3><span class="qc-tag">Superconducting</span></div>
+    <ul>
+      <li>Nov 2025: <b>Nighthawk</b> (120 qubits, 218 tunable couplers, up to 5,000 two-qubit gates, targeting 7,500 in 2026 and 15,000 on 1,000+ qubits by 2028) and <b>Loon</b> (all hardware elements for fault tolerance). Real-time qLDPC decoding was 10× faster than the prior approach. <span class="badge fact">primary</span></li>
+      <li>Jun 2026: committed <b>&gt;$10B over five years</b>. <span class="badge fact">primary</span></li>
+      <li>Jul 30 2026, with UChicago: <b>70 logical qubits</b>, 2,415 logical 2Q gates, 468 logical T gates in a verifiable sampling task. IBM: "firmly in the quantum advantage era." A sampling benchmark; spoofing rebuttals have historically followed such claims. <span class="badge claim">vendor claim</span></li>
+      <li>Aug 2026: two cryogenic modules joined and cooled in one environment.</li>
+      <li>Roadmap: <b>Starling 2029</b> (~200 logical qubits, 100M logical gates); Blue Jay 2033+ (~2,000 logical qubits, 1B gates).</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>Quantinuum</h3><span class="qc-tag">Trapped ion · Nasdaq: QNT</span></div>
+    <ul>
+      <li><b>Helios</b> (commercial Nov 2025): 98 barium-137 qubits, QCCD. 2Q fidelity ≈99.92%, 1Q 99.9975%. Reported 48 error-corrected (~2:1 encoding) and 94 error-detected logical qubits. <span class="badge plausible">secondary</span></li>
+      <li>Sep 2026: "Helix" fault-tolerant architecture shown on Helios. <span class="badge plausible">secondary</span></li>
+      <li>Oct 19 2026: <b>99.9995% logical fidelity</b> (≈5 errors per million operations, color code), 10× better than its own Sep result. Claims 100× better than Google's published result. This is a logical-memory primitive, not a full algorithm at scale, and the comparison is vendor-framed. <span class="badge claim">vendor claim</span></li>
+      <li>Roadmap: Sol 2027; <b>Apollo (universal FT) 2029</b>; Lumos (&gt;1M physical qubits) early 2030s.</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>IonQ</h3><span class="qc-tag">Trapped ion · NYSE: IONQ</span></div>
+    <ul>
+      <li>Oct 2025: <b>99.99% two-qubit fidelity</b> using Oxford Ionics-derived electronic qubit control (laser-free). <span class="badge fact">primary</span></li>
+      <li>Aug 2026: closed the SkyWater (chip foundry) acquisition. Q2 revenue +287% y/y; 2026 guidance $280–290M. Much of the growth is acquisition-driven (organic/inorganic split not verified). <span class="badge fact">primary</span></li>
+      <li>Sep 2026: <b>Superion 256</b> (256-qubit chip fabbed at SkyWater); customer deliveries in 2027.</li>
+      <li>Earlier claim of ~2M physical / 80,000 logical qubits by 2030 was not re-verified. Treat as aspirational. <span class="badge claim">vendor claim</span></li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>Microsoft (+ Atom Computing)</h3><span class="qc-tag">Topological / neutral atom</span></div>
+    <ul>
+      <li><b>Majorana 1</b> (Feb 2025): a <i>Nature</i> peer-review note said the data were not evidence for Majorana zero modes. In Jun 2026 <i>Nature</i> published a formal critique arguing trivial explanations. Microsoft disputes it. <span class="badge plausible">disputed</span></li>
+      <li><b>Majorana 2</b> (Jun 2026): claims 1,000× better reliability, ~20 s mean "lifetime", and a scalable machine by 2029. The lifetime is a Microsoft-defined parity-type metric, not a gate fidelity or logical qubit. No independent replication found. <span class="badge claim">vendor claim</span></li>
+      <li><b>Magne</b> (Denmark, with Atom Computing): ~1,225 neutral-atom qubits targeting 50 logical, €80M funded, operational ~early 2027. Under construction, not delivered. <span class="badge plausible">secondary</span></li>
+      <li>Nov 2024: 24 entangled logical qubits (Microsoft/Atom). <span class="badge fact">primary</span></li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>PsiQuantum</h3><span class="qc-tag">Photonic</span></div>
+    <ul>
+      <li>$1B Series E in 2025 at ~$7B valuation (&gt;$3B total raised). <span class="badge plausible">secondary</span></li>
+      <li>Building utility-scale sites in Chicago and Brisbane (Moreton Bay Central); chips at GlobalFoundries. Goal: ~1M-qubit-class fault-tolerant machine.</li>
+      <li><b>No fault-tolerant demonstration yet.</b> Targets of about 2027–2029 are aspirational.</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>QuEra / Harvard / MIT</h3><span class="qc-tag">Neutral atom</span></div>
+    <ul>
+      <li>Sep 2025 (<i>Nature</i>): a 3,000-qubit array ran continuously for hours with atom replenishment.</li>
+      <li>Nov 2025 (<i>Nature</i>): 448-atom fault-tolerant architecture, errors detected and removed below a threshold.</li>
+      <li>QuEra raised &gt;$230M (Dec 2025). <span class="badge fact">primary</span></li>
+      <li>A reported Jan 2026 "~96 logical qubits" result appears in one aggregator only and is <b>unverified</b>; not relied on here.</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>Infleqtion</h3><span class="qc-tag">Neutral atom</span></div>
+    <ul>
+      <li>Sep 24 2026: 30 logical qubits entangled from 80 physical atoms. Trade press notes it relies on <b>error detection</b>, not full correction. <span class="badge claim">vendor claim</span></li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>Rigetti</h3><span class="qc-tag">Superconducting</span></div>
+    <ul>
+      <li>108-qubit Cepheus-1-108Q was delayed in Jan 2026, then generally available Apr 7 2026 (Rigetti QCS, Amazon Braket). <span class="badge fact">primary</span></li>
+      <li>Small-scale; no QEC milestone.</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>D-Wave</h3><span class="qc-tag">Annealing → gate model</span></div>
+    <ul>
+      <li>Mar 2025 (<i>Science</i>): claimed "quantum supremacy" on a materials-simulation problem. Classical tensor-network rebuttals attempted to match it. <span class="badge plausible">contested</span></li>
+      <li>Jan 2026: bought Quantum Circuits (dual-rail, gate-model) for $550M. Target: 100 logical qubits by end-2032. <span class="badge plausible">secondary</span></li>
+      <li>Q1 2026 revenue <b>$2.9M (−81% y/y)</b>, record bookings $33.4M driven mainly by a $20M sale to Florida Atlantic University. Shows how lumpy and small real quantum revenue is.</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>DARPA QBI</h3><span class="qc-tag">Government validation</span></div>
+    <ul>
+      <li>Tests whether <b>utility-scale</b> quantum computing (value &gt; cost) is achievable <b>by 2033</b>.</li>
+      <li>Stage B selected 11 companies (Nov 2025). Oct 7 2026: Stage C adds Atom Computing, Diraq, IBM and IonQ, joining Microsoft and PsiQuantum. <span class="badge fact">primary</span></li>
+      <li>Quantinuum, Google and QuEra Stage C status not confirmed; trade press mentions six "final test" participants, not reconciled.</li>
+      <li>DARPA: "we increasingly expect that someone will build a utility-scale quantum computer by 2033." Evaluating, not guaranteeing.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<h2 class="qc-h">4 · Error-correction &amp; logical-qubit milestones</h2>
+<div class="timeline">
+  <div class="ev"><div class="when">Nov 2024 · primary</div><h4>Microsoft + Atom Computing: 24 entangled logical qubits</h4><p class="qc-note">Neutral atoms.</p></div>
+  <div class="ev"><div class="when">Dec 2024 · primary</div><h4>Google Willow: below-threshold surface code</h4><p class="qc-note">d=7, Λ≈2.14, 0.143% logical error per cycle.</p></div>
+  <div class="ev"><div class="when">Sep–Nov 2025 · primary / secondary</div><h4>Harvard/QuEra: 3,000-qubit continuous operation; 448-atom fault-tolerant architecture</h4></div>
+  <div class="ev"><div class="when">Nov 2025 · secondary / vendor</div><h4>Quantinuum Helios: 48 error-corrected / 94 error-detected logical qubits</h4></div>
+  <div class="ev"><div class="when">Nov 2025 · primary</div><h4>IBM Loon: all fault-tolerance hardware elements; qLDPC decoder 10× faster</h4></div>
+  <div class="ev"><div class="when">Jul 2026 · primary (vendor result)</div><h4>IBM/UChicago: 70 logical qubits, 2,415 logical 2Q gates, 468 logical T gates</h4></div>
+  <div class="ev"><div class="when">Sep 2026 · vendor claim</div><h4>Infleqtion: 30 logical qubits from 80 atoms (error-detected)</h4></div>
+  <div class="ev"><div class="when">Oct 2026 · vendor claim</div><h4>Quantinuum: 99.9995% logical fidelity (color code, Helios)</h4></div>
+</div>
+<div class="callout q"><b>Honest read.</b> Logical fidelities near 10⁻⁵–10⁻⁶ per operation on small codes have been shown. Not yet shown: the ~100–1,000+ logical qubits at ~10⁻⁹–10⁻¹² error for ≥10⁸–10⁹ gates that Shor on RSA/ECC or industrially valuable chemistry needs. "Logical qubit" counts are <b>not comparable across vendors</b>: codes, error detection vs correction, post-selection, and encoding overhead (2:1 vs hundreds:1) all differ.</div>
+
+<!-- ROADMAP -->
+<h2 class="qc-h">5 · Roadmaps and honest timelines</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Vendor</th><th>Stated fault-tolerance target</th><th>Status of the claim</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><b>IBM</b></td><td>Starling 2029 (200 logical qubits, 10⁸ gates); Blue Jay 2033+</td><td><span class="badge claim">vendor claim</span></td><td>Modular qLDPC; IBM says 2026 deliverables are on track</td></tr>
+<tr><td><b>Quantinuum</b></td><td>Apollo 2029; Lumos early 2030s (&gt;1M physical)</td><td><span class="badge claim">vendor claim</span></td><td>Public company; vendor-reported</td></tr>
+<tr><td><b>Microsoft</b></td><td>"Scalable quantum computer" 2029</td><td><span class="badge hype">disputed science</span></td><td>Topological approach contested; Magne (50 logical qubits, 2027) is the nearer deliverable</td></tr>
+<tr><td><b>Google</b></td><td>Previously ~2029 for a useful error-corrected machine; no new 2026 date found</td><td><span class="badge plausible">not re-verified</span></td><td>Moved its PQC deadline to 2029</td></tr>
+<tr><td><b>IonQ</b></td><td>~2M physical qubits by 2030</td><td><span class="badge hype">aspirational</span></td><td>Superion 256 deliveries 2027; target not re-verified</td></tr>
+<tr><td><b>PsiQuantum</b></td><td>Utility-scale sites, late 2020s</td><td><span class="badge hype">aspirational</span></td><td>No demos at scale yet</td></tr>
+<tr><td><b>D-Wave (gate model)</b></td><td>100 logical qubits by end-2032</td><td><span class="badge claim">vendor claim</span></td><td>Conservative relative to others</td></tr>
+<tr><td><b>DARPA QBI</b></td><td>Utility-scale by 2033 is being <i>tested</i></td><td><span class="badge fact">independent evaluation</span></td><td>Evaluating, not guaranteeing</td></tr>
+</tbody></table></div>
+<p class="qc-note">Nothing in this table has been independently verified as delivered; only DARPA is an outside evaluator.</p>
+<div class="callout"><b>Synthesis (author's judgment).</b> Many credible players cluster on <b>2029</b> for first small-to-mid-scale fault-tolerant machines, with hundreds of logical qubits at best and likely too small for RSA-2048. Cryptographically relevant machines are plausibly in the <b>early-to-mid 2030s</b>, with wide uncertainty. Timelines pulled in during 2025–26, but roadmap dates have historically slipped (Rigetti's 108-qubit delay in Jan 2026). Treat 2029 as "target if everything works," not a forecast.</div>
+
+<!-- ALGORITHMS -->
+<h2 class="qc-h">6 · Algorithms and realistic impact</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Algorithm</th><th>Speedup</th><th>Realistic impact</th></tr></thead>
+<tbody>
+<tr><td><b>Shor</b><br><span class="badge proven">proven</span></td><td>Superpolynomial (exponential-ish)</td><td>Breaks RSA/ECC/DH. Gidney (May 2025): RSA-2048 in under a week with &lt;1M noisy qubits (20M in 2019 estimate). Google (Mar 2026): ECDLP-256 (secp256k1) in ≤1,200–1,450 logical qubits, 70–90M Toffoli gates, &lt;500,000 physical qubits, minutes of runtime assuming 10⁻³ physical error; circuits withheld, zero-knowledge proof published. A trapped-ion preprint (arXiv 2609.05625, unreviewed) estimates 26 days on a 20,000-qubit design. Largest honest demos remain toy-sized.</td></tr>
+<tr><td><b>Grover</b><br><span class="badge proven">proven</span></td><td>Quadratic (√N)</td><td>Modest. Halves effective symmetric key length, so AES-256 stays safe. Error-correction overhead often erases the gain at practical sizes.</td></tr>
+<tr><td><b>Quantum simulation</b><br><span class="badge plausible">most credible</span></td><td>Potentially exponential for some systems</td><td>Most credible long-term commercial use (chemistry, materials). Strongly correlated molecules need fault tolerance. Classical methods (DMRG, tensor networks, neural states) keep eroding advantage claims; where advantage in chemistry first appears is actively disputed.</td></tr>
+<tr><td><b>VQE / QAOA</b><br><span class="badge hype">no proven speedup</span></td><td>None proven</td><td>NISQ-era hybrid heuristics. Hit barren plateaus and noise limits; no clear evidence of practical advantage over classical optimization.</td></tr>
+<tr><td><b>HHL / quantum linear algebra</b><br><span class="badge hype">heavy caveats</span></td><td>Exponential under strong caveats</td><td>Needs efficient state loading (qRAM) and returns only global properties of the solution. "Dequantization" weakened many ML claims. Not a practical near-term tool.</td></tr>
+<tr><td><b>Phase estimation / QSVT</b></td><td>Core subroutines</td><td>Underpin chemistry and many fault-tolerant algorithms.</td></tr>
+</tbody></table></div>
+
+<div class="qc-bars" aria-label="Shor qubit estimates">
+  <div class="qc-bar"><span>RSA-2048, 2019 est.</span><i style="width:100%"></i><b>~20M</b></div>
+  <div class="qc-bar"><span>RSA-2048, May 2025</span><i style="width:5%"></i><b>&lt;1M</b></div>
+  <div class="qc-bar"><span>ECDLP-256, Mar 2026</span><i style="width:2.5%"></i><b>&lt;500k</b></div>
+</div>
+<p class="qc-note">Physical-qubit estimates for Shor-type attacks (bar widths proportional, ceilings used). The ECDLP figure assumes 10⁻³ physical error on superconducting hardware. These are resource estimates, not demonstrations.</p>
+
+<!-- PQC -->
+<h2 class="qc-h">7 · Post-quantum cryptography: the part that is already real</h2>
+<div class="grid g2">
+  <div class="card q">
+    <h3>Standards</h3>
+    <ul>
+      <li>13 Aug 2024: NIST finalized <b>FIPS 203</b> (ML-KEM), <b>FIPS 204</b> (ML-DSA), <b>FIPS 205</b> (SLH-DSA).</li>
+      <li>HQC selected Mar 2025 as backup KEM (draft expected).</li>
+      <li>FIPS 206 (FN-DSA/Falcon) was still pending per sources found. <b>Verify current status at csrc.nist.gov.</b></li>
+      <li>NIST IR 8547 (draft): deprecate RSA/ECC at 112-bit security after <b>2030</b>, disallow after <b>2035</b>.</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <h3>Deployment</h3>
+    <ul>
+      <li>Hybrid X25519MLKEM768 is on by default in major browsers. Cloudflare reported over two-thirds (~70%) of human browser traffic post-quantum protected in 2026 (secondary sources).</li>
+      <li>This covers key exchange, which answers <b>harvest-now-decrypt-later</b>. <b>Certificates and signatures lag.</b></li>
+      <li>Google moved its own migration deadline to <b>2029</b> (Mar 25 2026), six years ahead of NIST's 2035 backstop.</li>
+      <li>AES-256 and hashes are considered fine against known quantum attacks.</li>
+      <li>Bitcoin/Ethereum signatures are ECDLP-based, so Google's Mar 2026 paper adds urgency. No cryptographically relevant quantum computer exists today.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- HYPE VS REALITY -->
+<h2 class="qc-h">8 · Hype vs reality</h2>
+<div class="callout warn"><b>Read this before repeating any quantum marketing line.</b>
+<ul style="margin:10px 0 0 20px;color:var(--mute)">
+  <li><b>"Advantage" claims keep being contested.</b> Random circuit sampling, OTOC and D-Wave annealing results all drew classical-simulation counters. IBM now runs a public Quantum Advantage Tracker to adjudicate. Advantages shown so far are on contrived or physics-benchmark tasks.</li>
+  <li><b>No commercially useful advantage has been conclusively demonstrated</b> for a real business problem (our conclusion from the sources; vendors assert otherwise for narrow cases).</li>
+  <li><b>Logical-qubit counts are slippery</b>: detection vs correction, post-selection, code distance and overhead differ.</li>
+  <li><b>Revenue is small:</b> D-Wave Q1 2026 revenue was $2.9M; IonQ's growth is largely acquisitions (SkyWater, Oxford Ionics). Valuations are far above revenue and equities are volatile.</li>
+  <li><b>Data loading bottleneck:</b> quantum computers are poor at big-data problems, which matters for any "quantum for AI/ML" pitch.</li>
+  <li><b>Roadmap risk:</b> delays are common; 2029 assumes cryogenics, wiring, decoders, yield and manufacturing scale on plan.</li>
+  <li><b>Not a general accelerator:</b> no known exponential speedup for most optimization, NP-complete problems or deep-learning training.</li>
+  <li><b>Source quality:</b> much 2026 coverage is press-release echo or aggregator content; prefer the primary sources below.</li>
+</ul></div>
+<div class="callout q"><b>Open items we could not resolve:</b> Quantinuum Apollo/Sol details, Google's current FT roadmap and IonQ's 2030 targets were not re-verified; QuEra's "96 logical qubits" is aggregator-only; the full DARPA Stage C roster is unconfirmed; FIPS 206 and HQC draft status need re-checking.</div>
+
+<!-- SOURCES -->
+<details><summary>Sources (key URLs from the research file)</summary>
+<p><b>Primary / near-primary</b></p>
+<ul>
+<li><a href="https://ibm.com/roadmaps/quantum">IBM quantum roadmap</a></li>
+<li><a href="https://newsroom.ibm.com/2025-11-12-ibm-delivers-new-quantum-processors,-software,-and-algorithm-breakthroughs-on-path-to-advantage-and-fault-tolerance">IBM, 12 Nov 2025 (Nighthawk, Loon)</a></li>
+<li><a href="https://newsroom.ibm.com/2026-06-02-ibm-commits-more-than-10-billion-to-quantum-computing,-funding-its-roadmap-from-todays-leading-systems-to-the-worlds-first-fault-tolerant-quantum-computers">IBM $10B commitment, 2 Jun 2026</a></li>
+<li><a href="https://newsroom.ibm.com/2026-07-30-ibm-and-the-university-of-chicago-demonstrate-quantum-advantage,-establishing-trusted-quantum-computation-on-logical-circuits">IBM/UChicago 70 logical qubits, 30 Jul 2026</a></li>
+<li><a href="https://newsroom.ibm.com/2026-08-19-ibm-connects-its-first-modular-cryogenic-systems-in-milestone-toward-fault-tolerant-quantum-computing">IBM modular cryogenic systems, 19 Aug 2026</a></li>
+<li><a href="https://research.google/blog/a-verifiable-quantum-advantage">Google Quantum Echoes</a></li>
+<li><a href="https://www.nature.com/articles/s41586-024-08449-y">Google Willow QEC (Nature)</a></li>
+<li><a href="https://blog.google/innovation-and-ai/technology/safety-security/cryptography-migration-timeline">Google PQC 2029 timeline</a></li>
+<li><a href="https://quantumai.google/static/site-assets/downloads/cryptocurrency-whitepaper.pdf">Google ECC whitepaper</a> · <a href="https://arxiv.org/pdf/2603.28846">arXiv 2603.28846</a></li>
+<li><a href="https://arxiv.org/pdf/2505.15917.pdf">Gidney, RSA-2048 (arXiv 2505.15917)</a></li>
+<li><a href="https://www.prnewswire.com/news-releases/quantinuum-breaks-error-correction-world-record-by-10x-validating-its-leading-path-to-fault-tolerant-quantum-computing-by-2029-302912556.html">Quantinuum, 19 Oct 2026 (vendor PR)</a></li>
+<li><a href="https://ionq.com/news/ionq-achieves-landmark-result-setting-new-world-record-in-quantum-computing">IonQ 99.99%</a> · <a href="https://ionq.com/news/ionq-launches-superion-product-line-industry-leading-upgradeable-platform-designed-to-scale-manufacturable-fault-tolerant-quantum-computing">IonQ Superion 256</a> · <a href="https://ionq.com/news/ionq-announces-record-second-quarter-2026-revenues-growing-287-yoy">IonQ Q2 2026</a></li>
+<li><a href="https://news.microsoft.com/source/features/innovation/majorana-2-microsoft-discovery-agentic-ai">Microsoft Majorana 2</a> · <a href="https://www.nature.com/articles/s41586-026-10567-8">Majorana critique (Nature)</a></li>
+<li><a href="https://investors.rigetti.com/news-releases/news-release-details/rigetti-announces-general-availability-108-qubit-system">Rigetti 108-qubit GA</a></li>
+<li><a href="https://dwavequantum.com/company/newsroom/press-release/d-wave-reports-first-quarter-2026-results">D-Wave Q1 2026</a></li>
+<li><a href="https://quera.com/press-releases/quera-computing-marks-record-2025-as-the-year-of-fault-tolerance-and-over-230m-of-new-capital-to-accelerate-industrial-deployment">QuEra 2025 review</a> · <a href="https://arxiv.org/pdf/2506.20661">Harvard 448-atom (arXiv)</a></li>
+<li><a href="https://infleqtion.com/infleqtion-achieves-30-entangled-logical-qubits-on-its-sqale-quantum-computer">Infleqtion 30 logical qubits</a></li>
+<li><a href="https://darpa.mil/research/programs/quantum-benchmarking-initiative">DARPA QBI</a> · <a href="https://darpa.mil/research/programs/quantum-benchmarking-initiative/stage-b-selection">Stage B</a> · <a href="https://darpa.mil/news/2026/four-more-teams-enter-quantum-benchmarking-initiative-final-stage">Stage C</a></li>
+<li><a href="https://csrc.nist.gov/pubs/ir/8547/ipd">NIST IR 8547 (draft)</a></li>
+</ul>
+<p><b>Secondary (use with caution)</b></p>
+<ul>
+<li><a href="https://quantumworldcongress.com/news/quantinuums-next-quantum-milestone-is-not-just-a-bigger-computer-it-is-a-computing-era">Quantinuum at Quantum World Congress 2026</a></li>
+<li><a href="https://hpcwire.com/2025/11/05/quantinuum-introduces-helios-quantum-system-as-roadmap-advances-toward-apollo">HPCwire: Helios</a> · <a href="https://qbitcount.com/history/2025-quantinuum-helios.html">qbitcount</a></li>
+<li><a href="https://postquantum.com/security-pqc/google-quantum-bitcoin-ecdlp">Google ECC analysis (postquantum.com)</a></li>
+<li><a href="https://arxiv.org/html/2609.05625v1">Trapped-ion ECDLP preprint (unreviewed)</a></li>
+<li><a href="https://theverge.com/tech/956450/nature-microsoft-quantum-computing-majorana-1-claims">Majorana dispute (The Verge)</a></li>
+<li><a href="https://quantumcomputingreport.com/denmarks-qunorth-to-acquire-50-logical-qubit-magne-quantum-computer-from-atom-computing-and-microsoft">Magne</a></li>
+<li><a href="https://entangledfuture.com/company/psiquantum">PsiQuantum</a> · <a href="https://ia.acs.org.au/article/2026/psiquantum-changes-location-for--1bn-quantum-build.html">PsiQuantum Brisbane</a></li>
+<li><a href="https://postquantum.com/quantum-research/harvard-mit-continuous-3000-qubit">Harvard/MIT 3,000 qubits</a></li>
+<li><a href="https://postquantum.com/industry-news/d-wave-quantum-advantage">D-Wave supremacy claim</a> · <a href="https://quantum-data.com/events/2026-05-12-d-wave-q1-2026-earnings-quantum-circuits-dual-rail-roadmap">D-Wave Q1 2026 / Quantum Circuits</a></li>
+<li><a href="https://arxiv.org/html/2603.18825v2">Tensor-network critique of advantage claims</a> · <a href="https://arxiv.org/html/2603.28648">Chemistry advantage skepticism</a></li>
+<li><a href="https://ajayk.sh/blog/quantum-computing-hardware-error-correction-2026">2026 hardware review blog</a></li>
+<li><a href="https://myssl.info/learn/post-quantum-tls">PQC TLS</a> · <a href="https://czinda.io/posts/state-of-pqc-may-2026">State of PQC, May 2026</a> · <a href="https://pqaudit.org">pqaudit.org</a></li>
+</ul>
+</details>
+</div></section>
+
+<section class="sec" id="relationship"><div class="container">
+<div class="eyebrow q">03 · The relationship</div>
+<h2 class="rel-answer">Is there a relationship? <span class="grad">Yes, but it is asymmetric.</span></h2>
+<p class="lead">AI is already helping build quantum computers. Quantum computing is <b>not</b> helping build superintelligence, and nothing in any credible roadmap to AGI/ASI requires it. The most concrete shared ground is plumbing (GPUs) and security (cryptography).</p>
+
+<div class="rel-tldr">
+  <div><b>Superintelligence ⇏ needs quantum</b>Every frontier AI system runs on classical silicon (GPUs/TPUs).</div>
+  <div><b>Traffic runs mostly AI → quantum</b>Decoding, code discovery, circuit optimization, calibration.</div>
+  <div><b>The hard link is security</b>Shor threatens RSA/ECC with or without AI; AI changes the tempo.</div>
+  <div><b>Infrastructure is shared</b>GPUs are becoming the control, decoding and simulation layer of quantum machines.</div>
+</div>
+
+<div class="rel-diagram reveal" role="img" aria-label="Diagram: AI to quantum is a strong, concrete link; quantum to AI is weak and mostly theoretical">
+<svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="relg1" x1="0" x2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#06b6d4"/></linearGradient>
+    <linearGradient id="relg2" x1="1" x2="0"><stop offset="0" stop-color="#06b6d4"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+    <marker id="relA" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#67e8f9"/></marker>
+    <marker id="relB" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#c084fc"/></marker>
+  </defs>
+  <rect x="20" y="95" width="210" height="150" rx="20" fill="rgba(139,92,246,.15)" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="125" y="160" text-anchor="middle" font-size="22" font-weight="800">Advanced AI</text>
+  <text x="125" y="186" text-anchor="middle" class="rel-sub">GPUs / TPUs · classical</text>
+  <text x="125" y="208" text-anchor="middle" class="rel-sub">→ ASI</text>
+  <rect x="670" y="95" width="210" height="150" rx="20" fill="rgba(6,182,212,.15)" stroke="#06b6d4" stroke-width="2"/>
+  <text x="775" y="160" text-anchor="middle" font-size="20" font-weight="800">Quantum computing</text>
+  <text x="775" y="186" text-anchor="middle" class="rel-sub">small-scale, pre-fault-tolerant</text>
+  <text x="775" y="208" text-anchor="middle" class="rel-sub">(Oct 2026)</text>
+  <path d="M240,135 C400,70 500,70 660,135" fill="none" stroke="url(#relg1)" stroke-width="12" stroke-linecap="round" marker-end="url(#relA)"/>
+  <text x="450" y="30" text-anchor="middle" class="rel-lbl" style="fill:#67e8f9">AI → Quantum · STRONG, happening now</text>
+  <text x="450" y="50" text-anchor="middle" class="rel-sub">AlphaQubit decoding · AI-found codes &amp; circuits · RL compilation · calibration</text>
+  <path d="M660,205 C500,290 400,290 240,205" fill="none" stroke="url(#relg2)" stroke-width="3" stroke-dasharray="8 9" stroke-linecap="round" marker-end="url(#relB)"/>
+  <text x="450" y="312" text-anchor="middle" class="rel-lbl" style="fill:#c084fc">Quantum → AI · WEAK, mostly theoretical</text>
+  <text x="450" y="331" text-anchor="middle" class="rel-sub">QML speedups dequantized · QRAM bottleneck · niche: quantum-data learning</text>
+  <rect x="345" y="140" width="210" height="60" rx="14" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.18)"/>
+  <text x="450" y="166" text-anchor="middle" font-size="14" font-weight="700">Shared ground</text>
+  <text x="450" y="186" text-anchor="middle" class="rel-sub">CUDA-Q · NVQLink · energy · crypto</text>
+</svg>
+</div>
+
+<div class="rel-col-h"><span class="rel-dot ai"></span><h3 style="margin:0">Quantum → AI <span class="badge hype" style="vertical-align:middle">weak link</span></h3></div>
+<p class="rel-sublead">Would quantum computers make AI smarter or cheaper? Theory says: rarely, and not for the workloads that matter most.</p>
+<div class="grid g2">
+  <div class="card ai rel-card reveal">
+    <h3>Quantum machine learning <span class="badge hype">headline claims fell</span></h3>
+    <p>HHL, quantum PCA, quantum recommendation systems and quantum SVMs were advertised as exponentially faster than classical ML.</p>
+    <ul>
+      <li><b>Dequantization.</b> In 2018 Ewin Tang gave a classical algorithm matching the Kerenidis–Prakash recommendation algorithm up to a polynomial slowdown. Follow-ups dequantized PCA, low-rank regression and supervised clustering. The exponential gap came from the state-preparation assumption.</li>
+      <li><b>Scope.</b> This hits low-rank, well-conditioned linear-algebra QML. It does not refute quantum advantage for all ML.</li>
+      <li><b>Power of data</b> (Huang et al., 2021): with enough training data, classical models match quantum models on many datasets.</li>
+      <li><b>Variational/NISQ QML</b> suffers barren plateaus; provable absence of them often implies classical simulability. No credible evidence that today's quantum neural nets beat classical ones.</li>
+    </ul>
+    <p class="src-note">One "hybrid chemistry net" accuracy gain exists only as a secondary report, unverified in the primary preprint, so we do not rely on it.</p>
+  </div>
+  <div class="card ai rel-card reveal">
+    <h3>The QRAM / data-loading wall <span class="badge proven">well established</span></h3>
+    <p>Loading N classical numbers into amplitudes costs O(N) time, or a QRAM whose hardware, energy and error-correction overhead is itself roughly O(N) physical resources. A 2026 paper still calls data loading "a fundamental headwind relative to classical methods".</p>
+    <p>Aaronson's "Read the fine print" lists the input, output, conditioning and classical-baseline caveats. For billions of tokens, just reading the data once already dominates.</p>
+    <p><b>LLM training:</b> quantum linear-algebra primitives (HHL, QSVT) need QRAM, tolerance of high condition numbers and full-vector readout. These assumptions mostly fail for transformer training. No credible path to quantum-accelerated frontier training exists today.</p>
+  </div>
+  <div class="card ai rel-card reveal">
+    <h3>Where a quantum learning edge <i>is</i> proven <span class="badge proven">proven</span></h3>
+    <p>When the <b>data itself is quantum</b>. Huang et al. (<i>Science</i>, 2022) proved an exponential advantage for a quantum learner with quantum memory on certain physical-property-learning tasks.</p>
+    <p>That is learning about quantum physics, not training language models. Quantum simulation giving AI better chemistry/materials data once fault tolerance arrives is plausible; generic LLM acceleration is not supported by theory.</p>
+    <p class="src-note">Sampling and optimization: beyond-classical sampling demos (random circuit sampling) do not yield useful ML models. QAOA/annealing has no broadly accepted end-to-end speedup on practical instances; treat vendor "optimization advantage" claims as unproven.</p>
+  </div>
+  <div class="card ai rel-card reveal">
+    <h3>Penrose–Hameroff: is quantum <i>needed</i> for AGI? <span class="badge hype">unsupported</span></h3>
+    <p>Orch-OR claims cognition depends on gravity-induced collapse in microtubules and is non-computable, so classical AGI would be impossible.</p>
+    <ul>
+      <li>Tegmark's decoherence estimate (2000) says coherence times are far too short. Hameroff et al. (2002) dispute the parameters, and no decisive experiment has settled it.</li>
+      <li>Penrose's Gödel-based argument is widely regarded as flawed by logicians.</li>
+      <li>Classical LLM scaling already reached olympiad-level maths and coding with no quantum component.</li>
+    </ul>
+    <p><b>Verdict:</b> no evidence that quantum physics is required for general intelligence. Even if brains used it, silicon intelligence need not copy brains.</p>
+  </div>
+</div>
+
+<div class="rel-col-h"><span class="rel-dot q"></span><h3 style="margin:0">AI → Quantum <span class="badge proven" style="vertical-align:middle">strong link</span></h3></div>
+<p class="rel-sublead">The direction with the strongest, most concrete evidence. Much of the 2026 wave is preprints and vendor reports, and is labelled as such.</p>
+<div class="grid g2">
+  <div class="card q rel-card reveal">
+    <h3>AlphaQubit: ML error decoding <span class="badge proven">peer-reviewed</span></h3>
+    <p>Google DeepMind + Google Quantum AI (<i>Nature</i>, Nov 2024): a recurrent-transformer decoder for the surface code. It beat other state-of-the-art decoders on real Sycamore data at distance 3 and 5, stayed ahead in simulation up to distance 11, and generalized from 25 training rounds to simulated 100,000 rounds.</p>
+    <p><b>Honest limit (Google's own):</b> still too slow for real-time correction on a superconducting chip (checks happen ~1 million times per second). Training at millions of qubits needs more data-efficient methods.</p>
+    <p class="src-note">Competitor: IBM's Nov 2025 claim of real-time-capable <i>classical</i> (non-AI) decoding at ~10× speedup is vendor-reported. Classical decoders may be the realistic real-time path.</p>
+  </div>
+  <div class="card q rel-card reveal">
+    <h3>AI discovery of codes, circuits, encodings <span class="badge plausible">promising · mostly preprints</span></h3>
+    <ul>
+      <li><b>Harvard/QuEra (Oct 2026, preprint):</b> LLM-in-the-loop evolutionary search with an independent verifier found circuits with fewer Toffoli gates and qubits than state of the art in 7 of 8 tasks, plus a new reversible modular-inversion architecture.</li>
+      <li><b>IBM (Jun 2026, vendor):</b> LLM-guided search found 465 candidate QEC codes; IBM says the practical potential of the top candidates is still to be investigated.</li>
+      <li><b>qBraid + AlphaEvolve (Jun 2026, vendor/secondary preprint):</b> claimed fermion-to-qubit encodings at distance 5 (previous known: 3), with 4–5× fewer data qubits for fault-tolerant chemistry. Unreviewed.</li>
+      <li><b>Phasecraft (Oct 2026):</b> AI agents for circuit optimization. Preprint, abstract only.</li>
+    </ul>
+  </div>
+  <div class="card q rel-card reveal">
+    <h3>Compilation &amp; calibration <span class="badge claim">widely published</span></h3>
+    <p>Reinforcement-learning agents have been applied to compiling for neutral-atom move synthesis and trapped-ion circuits (arXiv preprints).</p>
+    <p>ML-based qubit tuning and pulse optimization is widely published and being productized. Specific 2026 calibration results were not verified for this guide, so none are cited.</p>
+  </div>
+  <div class="card q rel-card reveal">
+    <h3>Chemistry &amp; materials: AI as rival and partner <span class="badge plausible">mixed</span></h3>
+    <p>Simulating strongly correlated electrons is the flagship quantum application, and also where AI competes: neural-network potentials and neural quantum states keep raising the classical bar. Hybrid "AI + quantum" drug-discovery pipelines are mostly roadmaps.</p>
+    <p>Google's <b>Quantum Echoes</b> (<i>Nature</i>, Oct 2025) is the best case for verifiable quantum advantage. Google claims 13,000× over a leading supercomputer on a benchmark. The NMR application was proof-of-principle only, not yet beyond-classical for a useful molecule.</p>
+  </div>
+</div>
+
+<h3 class="rel-h">Shared infrastructure: it's about plumbing</h3>
+<p class="rel-sublead">The GPU is the infrastructure of AI and also the infrastructure around quantum. For the foreseeable future, quantum computers are accelerators attached to classical AI-era supercomputers, not replacements for them.</p>
+<div class="grid g3">
+  <div class="card rel-card reveal">
+    <h3>NVQLink <span class="badge claim">vendor</span></h3>
+    <p>NVIDIA's open architecture (announced 28 Oct 2025) linking QPU controllers to GPU supercomputers for real-time QEC and control. It lists 17 QPU builders, 5 controller builders and 9 US national labs. A Qblox integration reports round-trip latency under 4 µs on an RTX PRO 6000 Blackwell.</p>
+  </div>
+  <div class="card rel-card reveal">
+    <h3>CUDA-Q <span class="badge claim">vendor</span></h3>
+    <p>CUDA-Q Logical (14 Sep 2026) is an orchestration layer for fault-tolerant application design. Fermilab reports a 7× design-cycle speedup (5 months to 3 weeks). NVIDIA/Jülich announced a 104-qubit magic-state-cultivation simulation on JUPITER.</p>
+  </div>
+  <div class="card rel-card reveal">
+    <h3>Energy &amp; compute <span class="badge hype">"quantum fixes it" = hype</span></h3>
+    <p>IEA: data centres used ~415 TWh in 2024; hyperscaler capex exceeded $400B in 2025, with a further ~75% rise expected in 2026. Quantum machines need cryogenics, control electronics and large classical decoding stacks, and no known quantum algorithm replaces the bulk of transformer compute.</p>
+  </div>
+</div>
+<div class="callout q"><b>Hardware reality check (Oct 2026).</b> Google demonstrated magic-state cultivation on Willow with ~40× error reduction (<i>Science</i>), still a small-scale demo. Quantinuum reports 99.9995% logical fidelity on Helios and targets fault-tolerant "Apollo" by 2029 (vendor). IBM targets Starling in 2029 (vendor). A 2026 <i>Nature</i> critique questions Microsoft's Majorana 1 claims. <b>Fault-tolerant machines at useful scale do not yet exist.</b></div>
+
+<h3 class="rel-h">Security overlap: where the real urgency is</h3>
+<p class="rel-sublead">The link runs through cryptography, not intelligence. AI doesn't break math; it changes the tempo.</p>
+<div class="grid g4">
+  <div class="card stat reveal"><div class="num grad">&lt;1M</div><div class="lbl">noisy qubits to factor RSA-2048 in under a week (Gidney, 2025), vs 20 million in 2019, a ~20× cut</div><div class="src">arXiv 2505.15917</div></div>
+  <div class="card stat reveal"><div class="num grad">~4 orders</div><div class="lbl">of magnitude gap remains: current machines have O(100) physical qubits at useful quality</div><div class="src">Research note 03</div></div>
+  <div class="card stat reveal"><div class="num grad">28–49%</div><div class="lbl">"quite possible" within 10 years; 51–70% "likely" within 15 (26 experts; opinion, not measurement)</div><div class="src">Global Risk Institute 2025</div></div>
+  <div class="card stat reveal"><div class="num grad">3 + 1</div><div class="lbl">NIST PQC standards (FIPS 203, 204, 205; Aug 2024) plus HQC as backup KEM (Mar 2025)</div><div class="src">NIST</div></div>
+</div>
+<div class="grid g2">
+  <div class="card q rel-card reveal">
+    <h3>Shor &amp; harvest-now-decrypt-later</h3>
+    <p>Shor's algorithm breaks RSA, DH and elliptic-curve crypto. Symmetric crypto and hashes are only quadratically weakened by Grover, and AES-256 stays OK.</p>
+    <p><b>HNDL:</b> adversaries can store encrypted traffic today and decrypt it later. It matters for long-lived secrets (state, health, IP). Public evidence of specific large-scale harvesting is mostly inference by agencies and commentators.</p>
+  </div>
+  <div class="card q rel-card reveal">
+    <h3>PQC response</h3>
+    <p>NIST finalized FIPS 203 (ML-KEM), 204 (ML-DSA) and 205 (SLH-DSA) in Aug 2024. NSA's CNSA 2.0 requires new national-security-system acquisitions to be quantum-resistant from 2027.</p>
+    <p class="src-note">NIST IR 8547 transition dates (draft recalled as deprecate by 2030, disallow by 2035) are <b>not verified</b> against the final text. Check before relying on them.</p>
+  </div>
+  <div class="card ai rel-card reveal">
+    <h3>How AI enters the picture</h3>
+    <ul>
+      <li><b>Cyber capability needs no quantum.</b> A Cloud Security Alliance note reports a lab rating its model "Critical" for cyber, with self-reported benchmark scores the CSA stresses are unreplicated. Independent preprints show the same direction. Treat as vendor-reported.</li>
+      <li><b>Possible speed-up of the quantum threat.</b> The Oct 2026 LLM-circuit paper targets modular inversion and number-theory primitives, the building blocks of factoring and elliptic-curve attacks. No AI-found improvement was found that changes Gidney's headline numbers.</li>
+      <li><b>Defence benefits too:</b> crypto-inventory, migration tooling and PQC implementation verification.</li>
+    </ul>
+  </div>
+  <div class="card ai rel-card reveal">
+    <h3>Not a "break everything" scenario</h3>
+    <p>AI does not break mathematics. A lattice or hash break would need new mathematical results; a superintelligence might find them, but that is speculative either way. The bottleneck for most organizations is <b>migration complexity</b>, not cryptanalysis.</p>
+  </div>
+</div>
+
+<h3 class="rel-h">Convergence scenarios</h3>
+<div class="grid g3">
+  <div class="card rel-card rel-scn reveal">
+    <span class="badge proven rel-like">Most likely near-term</span>
+    <h3>1 · Decoupled</h3>
+    <p>ASI-class AI advances on GPUs; quantum matures on its own timeline (fault tolerance claimed ~2029–2033 by IBM, Quantinuum and Google). They meet only in infrastructure and security.</p>
+  </div>
+  <div class="card q rel-card rel-scn reveal">
+    <span class="badge plausible rel-like">Plausible · starting</span>
+    <h3>2 · AI accelerates quantum</h3>
+    <p>AI-found codes, circuits, decoders and compilers shrink qubit and gate counts; agents speed up hardware design and calibration. Could pull forward cryptographically relevant machines by an unknown amount (possibly years), giving a faster, less predictable Q-day than survey data suggests.</p>
+  </div>
+  <div class="card ai rel-card rel-scn reveal">
+    <span class="badge hype rel-like">Speculative</span>
+    <h3>3 · Quantum accelerates AI</h3>
+    <p>Needs fault-tolerant machines plus a real advantage on a core AI workload. Specialized scientific-AI benefits (quantum-simulated chemistry data, learning from quantum experiments) are plausible; generic LLM/AGI acceleration is not supported by current theory.</p>
+  </div>
+</div>
+<div class="grid g2">
+  <div class="card rel-card rel-scn reveal" style="border-top:3px solid var(--bad)">
+    <span class="badge plausible rel-like">Tail risk · our label</span>
+    <h3>4 · Compound cyber risk</h3>
+    <p>Strong autonomous cyber-capable AI plus a cryptographically relevant quantum computer in the same window would collapse trust in legacy PKI and make HNDL archives suddenly readable. The mitigation is dull and available: finish PQC migration, build crypto-agility, and treat long-lived secrets as already exposed.</p>
+    <p class="src-note">The likelihood label is our judgment; the research gives no probability for this combination.</p>
+  </div>
+  <div class="card rel-card reveal">
+    <h3>Two meta-risks</h3>
+    <ul>
+      <li><b>Concentration:</b> frontier AI labs (Google, IBM, Microsoft, NVIDIA ecosystem) are also leading quantum players, so AI-for-quantum feedback loops accrue to a handful of firms and states.</li>
+      <li><b>Hype:</b> "Quantum-AI" is a marketing category; funding and valuations can detach from technical evidence (see QML and the Majorana controversy).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rel-verdict reveal" id="rel-verdict">
+  <div class="eyebrow q">The verdict</div>
+  <h3 style="font-size:28px">Claim by claim: proven, plausible, or hype?</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Claim</th><th>Verdict</th></tr></thead>
+    <tbody>
+    <tr><td>Shor's algorithm breaks RSA/ECC; NIST PQC standards exist; HNDL is a rational threat model<small>Gidney's 2025 estimate is a published resource analysis, not a machine.</small></td><td><span class="badge proven">Proven</span></td></tr>
+    <tr><td>Classical algorithms dequantized much of the claimed exponential QML speedup; data loading is a real bottleneck</td><td><span class="badge proven">Proven</span></td></tr>
+    <tr><td>Quantum advantage in learning <i>about quantum systems</i><small>Huang et al., Science 2022.</small></td><td><span class="badge proven">Proven</span></td></tr>
+    <tr><td>ML decoders can beat conventional decoders on real small-scale surface-code data<small>AlphaQubit, Nature 2024. Not yet real-time.</small></td><td><span class="badge proven">Proven (small scale)</span></td></tr>
+    <tr><td>Quantum computers rely on classical HPC/GPU infrastructure for control and decoding<small>NVQLink / CUDA-Q are vendor-confirmed products.</small></td><td><span class="badge proven">Proven</span></td></tr>
+    <tr><td>AGI/ASI requires quantum computation</td><td><span class="badge hype">No evidence</span></td></tr>
+    <tr><td>AI-designed QEC codes, encodings and circuits cut fault-tolerant resource costs<small>IBM, qBraid/AlphaEvolve, Harvard/QuEra: mostly preprints and vendor reports.</small></td><td><span class="badge plausible">Plausible</span></td></tr>
+    <tr><td>Quantum simulation gives AI better chemistry/materials data once fault tolerance arrives<small>Late 2020s–2030s at the earliest.</small></td><td><span class="badge plausible">Plausible</span></td></tr>
+    <tr><td>AI shortens the timeline to cryptographically relevant quantum computers<small>No AI result yet changes Gidney's numbers.</small></td><td><span class="badge plausible">Plausible</span></td></tr>
+    <tr><td>Quantum Echoes-style verifiable advantage matures into an NMR / molecular application</td><td><span class="badge plausible">Plausible</span></td></tr>
+    <tr><td>"Quantum computers will train/accelerate LLMs or give us AGI/ASI"</td><td><span class="badge hype">Hype</span></td></tr>
+    <tr><td>"Quantum is needed for consciousness / general intelligence"<small>Orch-OR is a minority hypothesis facing strong physical objections.</small></td><td><span class="badge hype">Hype</span></td></tr>
+    <tr><td>"Quantum will solve AI's energy problem"</td><td><span class="badge hype">Hype</span></td></tr>
+    <tr><td>Variational/NISQ QML advantage; optimization advantage without classical-baseline comparison</td><td><span class="badge hype">Hype</span></td></tr>
+    <tr><td>"ASI + quantum = unstoppable code breaker"<small>Shor needs hardware that doesn't exist yet; AI doesn't remove that constraint.</small></td><td><span class="badge hype">Hype (as stated)</span></td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="callout"><b>Bottom line.</b> A superintelligence is not <i>dependent</i> on quantum computing. It can be <i>accelerated by</i> specialized quantum simulation (later), and it can accelerate quantum engineering (now). The urgent, actionable overlap is cryptography: <b>migrate to PQC regardless of how either technology evolves.</b></div>
+
+<details class="rel-srcs"><summary>Sources &amp; what we left out</summary>
+<h4>Quantum for AI</h4><ul>
+<li><a href="https://arxiv.org/abs/1807.04271">Tang, quantum-inspired classical algorithm for recommendation systems</a></li>
+<li><a href="https://arxiv.org/abs/1811.00414">Tang, qPCA exponential speedup and state preparation</a></li>
+<li><a href="https://arxiv.org/abs/1910.06151">Chia et al., sampling-based low-rank framework for dequantizing QML</a></li>
+<li><a href="https://arxiv.org/abs/2011.01938">Huang et al., Power of data in QML</a></li>
+<li><a href="https://science.org/doi/abs/10.1126/science.abn7293">Huang et al., Quantum advantage in learning from experiments (Science 2022)</a></li>
+<li><a href="https://arxiv.org/pdf/2610.03700">Scalable Passive QRAM</a></li>
+<li><a href="https://nature.com/articles/s41467-025-63099-6">Cerezo et al., barren plateaus and classical simulability</a></li>
+<li><a href="https://lanl.gov/media/news/0409-quantum-learning-models">LANL summary</a></li>
+<li><a href="https://arxiv.org/pdf/2506.19232">Future of Quantum Computing panel (Aaronson et al.)</a></li>
+<li><a href="https://postquantum.com/quantum-ai/quantum-ai-taxonomy">PostQuantum.com taxonomy (secondary)</a></li>
+<li><a href="https://arxiv.org/html/quant-ph/0005025v1">Tegmark decoherence</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/12188753">Hameroff et al. rebuttal</a></li></ul>
+<h4>AI for quantum</h4><ul>
+<li><a href="https://nature.com/articles/s41586-024-08148-8">AlphaQubit, Nature</a> · <a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphaqubit-quantum-error-correction">Google blog</a></li>
+<li><a href="https://research.ibm.com/blog/ai-for-qec">IBM: Can LLMs discover QEC codes?</a></li>
+<li><a href="https://quantum-brief.com/blog/news-2026-06-27-qbraid-alphaevolve">qBraid + AlphaEvolve (secondary)</a></li>
+<li><a href="https://arxiv.org/pdf/2610.22367v1">Gu, Kemeny, Yelin, Lukin: state-of-the-art quantum circuits with LLMs</a></li>
+<li><a href="https://arxiv.org/pdf/2610.31352v1">Crichigno &amp; Flammia: AI agents for circuit optimization</a></li>
+<li><a href="https://arxiv.org/html/2506.05536v1">RL compilation</a> · <a href="https://arxiv.org/html/2307.05744v1">RL compilation (ions)</a></li>
+<li><a href="https://research.google/blog/a-verifiable-quantum-advantage">Google Quantum Echoes</a></li>
+<li><a href="https://blog.google/innovation-and-ai/models-and-research/quantum-computing/magic-state-cultivation-quantum-computing">Google magic state cultivation</a></li>
+<li><a href="https://pubs.acs.org/doi/10.1021/acs.jctc.5c01038">Chemistry with 25–100 logical qubits</a></li>
+<li><a href="https://arxiv.org/pdf/2603.17790v1.pdf">ML + HPC quantum drug discovery</a></li>
+<li><a href="https://newsroom.ibm.com/2025-11-12-ibm-delivers-new-quantum-processors,-software,-and-algorithm-breakthroughs-on-path-to-advantage-and-fault-tolerance">IBM Nov 2025 announcements</a></li>
+<li><a href="https://prnewswire.com/news-releases/quantinuum-breaks-error-correction-world-record-by-10x-validating-its-leading-path-to-fault-tolerant-quantum-computing-by-2029-302912631.html">Quantinuum (vendor)</a></li>
+<li><a href="https://theverge.com/tech/956450/nature-microsoft-quantum-computing-majorana-1-claims">Majorana 1 critique</a></li></ul>
+<h4>Infrastructure &amp; energy</h4><ul>
+<li><a href="https://nvidianews.nvidia.com/news/nvidia-nvqlink-quantum-gpu-computing">NVIDIA NVQLink</a></li>
+<li><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Expands-Open-Source-CUDA-Q-Platform-for-Fault-Tolerant-Quantum-Computing">NVIDIA CUDA-Q Logical</a></li>
+<li><a href="https://thequantuminsider.com/2026/10/22/qblox-hybrid-quantum-computing-nvidia-dgx-spark-nvqlink">Qblox + NVQLink</a></li>
+<li><a href="https://quantumcomputingreport.com/nvidia-and-julich-run-104-qubit-magic-state-cultivation-simulation-on-jupiter-supercomputer">NVIDIA/Jülich 104-qubit simulation</a></li>
+<li><a href="https://iea.org/reports/key-questions-on-energy-and-ai/executive-summary">IEA, Key Questions on Energy and AI</a></li></ul>
+<h4>Security</h4><ul>
+<li><a href="https://arxiv.org/abs/2505.15917">Gidney, RSA-2048 with under a million noisy qubits</a></li>
+<li><a href="https://globalriskinstitute.org/publication/quantum-threat-timeline-report-2025b">Global Risk Institute Quantum Threat Timeline 2025</a></li>
+<li><a href="https://quantumsecuritydefence.com/insights/nist-ir-8547-transition-timeline">NIST IR 8547 explainer (secondary)</a> · <a href="https://pqaudit.org">PQC standards index (secondary)</a></li>
+<li><a href="https://nsa.gov/Cybersecurity/Post-Quantum-Cryptography-Resource-Hub/Article-Display/Article/4616296/post-quantum-cryptography-a-digital-armor">NSA PQC hub</a></li>
+<li><a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-gpt6-astra-autonomous-zeroday-exploitation">CSA note (vendor-reported figures)</a></li>
+<li><a href="https://arxiv.org/pdf/2603.11214v1.pdf">Multi-step cyber-attack evals</a> · <a href="https://arxiv.org/pdf/2603.02297v1.pdf">ZeroDayBench</a></li></ul>
+<p class="src-note"><b>Not verified / deliberately excluded:</b> a "Willow-Alpha" catalyst-simulation article (syncflo.xyz) with no primary source; exact AlphaQubit percentage improvements; the modular hyperbolic-code "~30× lower overhead" figure (unreviewed preprint via secondary summary); final NIST IR 8547 dates.</p>
+</details>
+</div></section>
+
+<section class="sec" id="business"><div class="container">
+<div class="eyebrow biz">Business guide</div>
+<h2>Where the money is, <span class="grad">and what to do about it</span></h2>
+<p class="lead">AI is a mass-market, capex-saturated reality. Quantum is early-commercial. The combined story is mostly hybrid AI + HPC + quantum workflows and quantum-safe security. Every figure below is labelled by source, year and whether it is a forecast or a reported fact.</p>
+
+<div class="callout biz"><b>Read the labels.</b> <span class="badge mid">Forecast</span> means an analyst projection, not an outcome. <span class="badge fact">Fact</span> means reported or published. <span class="badge claim">Vendor claim</span> comes from the vendor's or partner's own release.</div>
+
+<h3>Market size: AI</h3>
+<div class="grid g4"><div class="card biz stat"><div class="num grad">$2.67T</div><div class="lbl">Worldwide AI spending 2026 (+49.5%); $1.79T in 2025, $3.64T in 2027</div><div class="src">Gartner, 16 Sep 2026 <span class="badge mid">Forecast</span></div></div><div class="card biz stat"><div class="num grad">$1.48T</div><div class="lbl">AI infrastructure spend 2026, within the $2.67T</div><div class="src">Gartner, Sep 2026 <span class="badge mid">Forecast</span></div></div><div class="card biz stat"><div class="num grad">$65.5B</div><div class="lbl">AI agents &amp; assistants by 2027 ($16.5B in 2025)</div><div class="src">Gartner, Sep 2026 <span class="badge mid">Forecast</span></div></div><div class="card biz stat"><div class="num grad">$51.3B</div><div class="lbl">AI cybersecurity spend 2026 (2025: $25.9B)</div><div class="src">Gartner, Sep 2026 <span class="badge mid">Forecast</span></div></div></div>
+<p class="src-note">Also: Gartner puts GenAI in the Trough of Disillusionment in 2026 even as spending rises. AGI/ASI has no revenue line of its own; capital is priced on the bet that general models become the platform for knowledge work. There is no agreed definition or date for AGI.</p>
+
+<h3 style="margin-top:34px">Market size: quantum</h3>
+<div class="grid g3"><div class="card biz stat"><div class="num grad">&gt;$1B</div><div class="lbl">Quantum-computing company revenue 2025; $3.2–4.4B by 2028</div><div class="src">McKinsey Quantum Technology Monitor 2026, Apr 2026 <span class="badge mid">Estimate/Forecast</span></div></div><div class="card biz stat"><div class="num grad">$1.3–2.7T</div><div class="lbl">Industry 'value at stake' from QC by 2035; assumes fault-tolerant machines, overlaps GenAI, not additive</div><div class="src">McKinsey, 2026 <span class="badge mid">Forecast</span></div></div><div class="card biz stat"><div class="num grad">$450–850B</div><div class="lbl">Economic value from QC by 2040</div><div class="src">BCG, Jul 2024 <span class="badge mid">Forecast</span></div></div><div class="card biz stat"><div class="num grad">up to $250B</div><div class="lbl">Market value unlockable across industries (gradual, not guaranteed)</div><div class="src">Bain Technology Report, Sep 2025 <span class="badge mid">Forecast</span></div></div><div class="card biz stat"><div class="num grad">$12.6B</div><div class="lbl">Quantum startup/QT investment 2025 vs $2.0B in 2024 (~6.3x); includes public and government funding</div><div class="src">McKinsey / PitchBook data, 2025 <span class="badge fact">Fact (compiled)</span></div></div><div class="card biz stat"><div class="num grad">$3.9B</div><div class="lbl">QC venture funding 2025, ~125–127 deals (record); $1.2B in Q1 2026</div><div class="src">PitchBook, Q2 2026 Bit by Qubit <span class="badge fact">Fact</span></div></div></div>
+<div class="callout warn"><b>Don't add these up.</b> Revenue pools are single-digit billions, while 'value at stake' is trillions. The latter is a customer-side economic-impact estimate that assumes fault-tolerant machines, and McKinsey flags that it overlaps with GenAI impact. McKinsey's 2035 QC revenue range (about $7–10B) is our reading of an ambiguous exhibit and should be checked against the PDF before reuse.</div>
+
+<h3 style="margin-top:34px">Investment and capex trends</h3>
+<div class="grid g2">
+<div class="card biz"><h4>AI capex <span class="badge fact">Guidance</span></h4>
+<ul><li>Amazon, Alphabet, Microsoft and Meta guided roughly <b>$720–745B</b> combined for 2026 (trade press on July 2026 earnings). Five hyperscalers incl. Oracle: ~$780B (Vanguard-compiled).</li>
+<li>Moody's: $785B in 2026, approaching $1T in 2027. Citi: $5.35T cumulative for four hyperscalers through 2030 <span class="badge mid">Forecast</span>.</li>
+<li>Gartner (Oct 2026): ~$7.5T cumulative AI capex 2025–2030, about $2T/yr by 2030 <span class="badge mid">Forecast</span>. Bain (Sep 2025): ~$2T of annual new revenue needed to fund compute scaling by 2030.</li>
+<li>Meta guided $135–145B for 2026; Q3-2026 capex of $34.9B and its first negative free-cash-flow quarter in years.</li></ul></div>
+<div class="card biz"><h4>Bubble indicators <span class="badge mid">Forecast</span></h4>
+<ul><li>Gartner (Oct 2026): data-centre owners need <b>$8.5T</b> cumulative revenue by 2030 for a 12% return, but are likely to see no more than <b>$3.6T</b>.</li>
+<li>Over <b>$3.5T</b> of AI infrastructure spend could be exposed to impairment by end-2030.</li>
+<li>Neocloud economics are weaker than those of diversified hyperscalers.</li>
+<li>Frontier labs: Anthropic $65B Series H at $965B post-money (28 May 2026, CNBC); OpenAI reported valuation $852B and ~10 GW secured capacity. Run-rate revenue figures are unaudited and company-sourced.</li></ul></div>
+<div class="card biz"><h4>Quantum capital <span class="badge fact">Fact</span></h4>
+<ul><li>Record $3.9B VC in 2025; accelerating in 2026 (over $4B reported by late Sep 2026). Venture-growth share of deal value rose from ~1% to 27.5%.</li>
+<li>IonQ completed a ~$2B equity offering; IQM heading to Nasdaq via SPAC; DARPA QBI Stage C awards (IonQ up to $300M).</li>
+<li>McKinsey sample of 162 large companies: one-third spent over $10M on QC in 2025, 7% over $50M.</li>
+<li>Vendor revenue is thin against valuations; one independent brief found no QC company yet earning revenue from useful computation itself (mostly R&amp;D contracts, access, hardware).</li></ul></div>
+<div class="card biz"><h4>Where AI and quantum capital meet <span class="badge claim">Secondary report</span></h4>
+<ul><li>Nvidia and BlackRock were reported among the largest quantum investors in 2025 (about $1.6B and $1.7B, PitchBook data via a secondary report).</li>
+<li>US companion quantum-innovation executive order signed 22 Jun 2026; EU, Canada, Australia and India are setting 2028–2031 PQC clocks.</li></ul></div>
+</div>
+
+<h3 style="margin-top:34px">Industry explorer: AI vs quantum vs combined</h3>
+<p class="lead" style="margin-bottom:10px">Eleven industries. Badges show maturity: <span class="badge today">today</span> <span class="badge mid">3–5 years / pilots</span> <span class="badge far">10+ years</span>. Maturity ratings are mostly our estimates; named pilots are from the sources listed below.</p>
+<div class="grid g2 biz-ind-grid"><article class="card biz biz-ind"><h3>Pharma / drug discovery</h3>
+<div class="biz-row ai"><h4>AI <span class="badge today">Today</span></h4><p>Insilico&#x27;s AI-discovered TNIK inhibitor rentosertib (IPF): randomized Phase IIa in Nature Medicine (2025); Phase III start announced 7 Jul 2026 (company PR). Isomorphic Labs raised $2.1B (May 2026; clinical stage conflicting in sources, unverified).</p></div>
+<div class="biz-row q"><h4>Quantum <span class="badge mid">Pilots → 3–5y</span></h4><p>AstraZeneca–IonQ–AWS–NVIDIA hybrid workflow (2025, vendor-announced); Moderna–IBM folded a 60-nucleotide mRNA structure (research demo); Boehringer Ingelheim with Google Quantum AI and PsiQuantum on cytochrome P450. McKinsey: up to ~$400B value by 2035 (forecast).</p></div>
+<div class="biz-row c"><h4>Combined <span class="badge far">Mostly 5–10y</span></h4><p>Quantum-generated simulation data feeding ML property predictors; AI proposes candidates, QC refines binding energetics.</p></div></article>
+<article class="card biz biz-ind"><h3>Finance</h3>
+<div class="biz-row ai"><h4>AI <span class="badge today">Today</span></h4><p>Fraud/AML, credit scoring, coding assistants and research agents are mainstream.</p></div>
+<div class="biz-row q"><h4>Quantum <span class="badge mid">Pilots → 3–5y</span></h4><p>HSBC + IBM (25 Sep 2025): up to 34% better fill-probability prediction in bond RFQs. Vendor claim, a trial not production P&amp;L; baselines/cost not disclosed. JPMorgan + Quantinuum (Nature, Mar 2025): certified randomness on 56 qubits. McKinsey: $400–600B by 2035 (forecast).</p></div>
+<div class="biz-row c"><h4>Combined <span class="badge far">Mostly 5–10y</span></h4><p>AI signal models plus quantum sampling/optimisation subroutines; PQC for payment infrastructure is the time-critical piece.</p></div></article>
+<article class="card biz biz-ind"><h3>Logistics &amp; supply chain</h3>
+<div class="biz-row ai"><h4>AI <span class="badge today">Today</span></h4><p>Demand forecasting, routing, warehouse robotics, agentic procurement.</p></div>
+<div class="biz-row q"><h4>Quantum <span class="badge mid">Niche now, 3–5y scaled</span></h4><p>Einride–IonQ collaboration (2025); Volkswagen Lisbon bus-routing D-Wave demo (2019, small). McKinsey: $200–500B by 2035 (forecast).</p></div>
+<div class="biz-row c"><h4>Combined <span class="badge far">Mostly 5–10y</span></h4><p>AI forecasts feed QUBO/hybrid solvers for re-optimisation; &#x27;quantum digital twins&#x27; in pilot TMS systems (McKinsey 2026).</p></div></article>
+<article class="card biz biz-ind"><h3>Energy, grid &amp; batteries</h3>
+<div class="biz-row ai"><h4>AI <span class="badge today">Today</span></h4><p>Grid forecasting, predictive maintenance, trading. DeepMind GNoME predicted ~2.2M crystals (~380k stable): computational, not yet commercial batteries.</p></div>
+<div class="biz-row q"><h4>Quantum <span class="badge mid">Grid pilots 3–5y</span></h4><p>E.ON named by McKinsey as collaborator; Aramco deployed a Pasqal QC (2025); BMW–Quantinuum (expanded May 2026) targets fuel-cell catalysis.</p></div>
+<div class="biz-row c"><h4>Combined <span class="badge far">Chemistry 10y+</span></h4><p>AI-screened candidates plus quantum-accurate energetics for electrolytes/catalysts. Impact 10y+.</p></div></article>
+<article class="card biz biz-ind"><h3>Materials &amp; chemicals</h3>
+<div class="biz-row ai"><h4>AI <span class="badge today">Today</span></h4><p>ML interatomic potentials, autonomous labs, generative design.</p></div>
+<div class="biz-row q"><h4>Quantum <span class="badge mid">Pilots 3–5y</span></h4><p>BASF–D-Wave proof of concept (Nov 2025); Mitsubishi Chemical–IBM materials simulation (research stage). McKinsey: $450–800B by 2035; R&amp;D savings of 20–50% (optimistic upper end, forecast).</p></div>
+<div class="biz-row c"><h4>Combined <span class="badge far">A priori design 10y+</span></h4><p>AI + QC &#x27;virtual R&amp;D&#x27; is the most-cited long-run synergy.</p></div></article>
+<article class="card biz biz-ind"><h3>Cybersecurity</h3>
+<div class="biz-row ai"><h4>AI <span class="badge today">Today</span></h4><p>AI is both defender and attacker tool. Gartner: AI cybersecurity spend $51.3B (2026) → $86B (2027) (forecast).</p></div>
+<div class="biz-row q"><h4>Quantum <span class="badge today">PQC planning today</span></h4><p>Quantum is chiefly a threat (Shor), with defences: PQC, QKD, QRNG. Crypto-relevant QC does not exist yet (10y+ plausible).</p></div>
+<div class="biz-row c"><h4>Combined <span class="badge mid">Mandates 2030–31</span></h4><p>AI-assisted crypto inventory/CBOM discovery; AI-accelerated vulnerability research raises the value of crypto-agility.</p></div></article>
+<article class="card biz biz-ind"><h3>Manufacturing</h3>
+<div class="biz-row ai"><h4>AI <span class="badge today">Today</span></h4><p>Predictive maintenance, vision QC, scheduling, industrial copilots, robotics pilots.</p></div>
+<div class="biz-row q"><h4>Quantum <span class="badge today">Niche production</span></h4><p>Ford Otosan (Ford/Koç JV): D-Wave hybrid sequencing for Ford Transit (1,500+ variants) in production; scheduling 1,000 vehicles cut from 30 min to under 5 min (vendor-co-announced, 31 Mar 2025). Speed vs prior method, not proof of quantum advantage.</p></div>
+<div class="biz-row c"><h4>Combined <span class="badge far">Sim-driven design 10y+</span></h4><p>AI demand/maintenance signals feeding hybrid schedulers.</p></div></article>
+<article class="card biz biz-ind"><h3>Telecom</h3>
+<div class="biz-row ai"><h4>AI <span class="badge today">Today</span></h4><p>Network automation, churn, AI-RAN, agentic care.</p></div>
+<div class="biz-row q"><h4>Quantum <span class="badge mid">QKD pilots; optimisation 3–5y</span></h4><p>Quantum Computing Inc. quantum-secure networking platform (ECOC 2025); IonQ/Capella space QKD plans. PQC migration of core/SIM/5G signalling is a major workload. McKinsey: $50–150B band shared with media/tech.</p></div>
+<div class="biz-row c"><h4>Combined <span class="badge far">Quantum nets 10y+</span></h4><p>AI spectrum/network planning with quantum optimisers (research).</p></div></article>
+<article class="card biz biz-ind"><h3>Automotive</h3>
+<div class="biz-row ai"><h4>AI <span class="badge today">Today</span></h4><p>ADAS/autonomy stacks, generative design, supply-chain AI.</p></div>
+<div class="biz-row q"><h4>Quantum <span class="badge mid">Optimisation pilots</span></h4><p>BMW–Quantinuum (May 2026), BMW with Classiq+NVIDIA on architecture optimisation, Airbus–BMW challenge now a Global Quantum+AI Challenge 2026; Ford Otosan; Volkswagen research with D-Wave/Google; Hyundai flagged by McKinsey as quantum-ready.</p></div>
+<div class="biz-row c"><h4>Combined <span class="badge far">Battery/sim 10y+</span></h4><p>AI-screened battery/material candidates + quantum chemistry; hybrid optimisation of architecture.</p></div></article>
+<article class="card biz biz-ind"><h3>Aerospace &amp; defence</h3>
+<div class="biz-row ai"><h4>AI <span class="badge today">Today</span></h4><p>Design-space exploration, maintenance, ISR analytics.</p></div>
+<div class="biz-row q"><h4>Quantum <span class="badge mid">Sensing now–3y; compute 5–10y+</span></h4><p>Airbus quantum challenge problems (wing-box loading, cargo); Honeywell US-government GPS-denied navigation contracts (2025): quantum sensing is nearer deployment than quantum computing.</p></div>
+<div class="biz-row c"><h4>Combined <span class="badge far">Mostly 10y+</span></h4><p>AI plus quantum-sensing data; combined computing use is early.</p></div></article>
+<article class="card biz biz-ind"><h3>Climate</h3>
+<div class="biz-row ai"><h4>AI <span class="badge today">Today</span></h4><p>AI weather/climate emulation, grid and emissions monitoring.</p></div>
+<div class="biz-row q"><h4>Quantum <span class="badge far">10y+</span></h4><p>Better catalysts for carbon capture, nitrogen fixation, batteries; quantum sensing for monitoring.</p></div>
+<div class="biz-row c"><h4>Combined <span class="badge far">10y+</span></h4><p>AI downscaling + quantum-accurate chemistry. Trade-off: AI&#x27;s energy demand vs climate-optimisation promise.</p></div></article>
+</div>
+
+<h3 style="margin-top:34px">Where AI and quantum genuinely intersect</h3>
+<div class="grid g3">
+<div class="card biz"><h4>Hybrid HPC + AI + QPU <span class="badge mid">3–5y</span></h4><p>NVIDIA CUDA-Q/NVQLink-style integration; AstraZeneca–IonQ–AWS–NVIDIA. McKinsey says winners invest in HPC–QC integration.</p></div>
+<div class="card biz"><h4>AI for quantum <span class="badge today">Today</span></h4><p>ML for error-correction decoding, calibration and circuit compilation (Google, NVIDIA, IBM). Where AI most plausibly speeds up quantum timelines.</p></div>
+<div class="card biz"><h4>Quantum for AI <span class="badge far">Speculative</span></h4><p>No demonstrated advantage on commercial ML tasks. Treat 'quantum AI' marketing sceptically. No consensus evidence that AGI needs quantum hardware.</p></div>
+</div>
+
+<h3 style="margin-top:34px">ROI evidence and confidence</h3>
+<div class="tablewrap"><table><thead><tr><th>Claim</th><th>Source</th><th>Evidence quality</th><th>Confidence</th></tr></thead><tbody><tr><td>Enterprise AI: 39% report enterprise-level EBIT impact; ~two-thirds not yet scaling</td><td>McKinsey State of AI 2025</td><td>Survey, good quality</td><td><span class="badge today">High</span></td></tr><tr><td>'95% of GenAI pilots show no measurable P&amp;L impact'</td><td>MIT NANDA, Aug 2025 (150 interviews, 350 survey responses, 300 deployments)</td><td>Widely cited, methodologically debated</td><td><span class="badge mid">Medium</span></td></tr><tr><td>'171% median agent ROI'</td><td>Several 2026 blog posts attributing it to IBM etc.</td><td>Secondary/aggregator pages, unverified against primary reports. Shown only as a warning: do not rely on it.</td><td><span class="badge far">Low</span></td></tr><tr><td>Ford Otosan scheduling 30 min → under 5 min</td><td>D-Wave + customer press release, 31 Mar 2025</td><td>Real production deployment; speed vs prior method, not proof of quantum advantage</td><td><span class="badge mid">Medium</span></td></tr><tr><td>HSBC: up to 34% better bond fill-probability prediction</td><td>HSBC + IBM press release, 25 Sep 2025; arXiv paper</td><td>Trial, not production; classical baselines and cost/latency not disclosed</td><td><span class="badge mid">Medium-low</span></td></tr><tr><td>McKinsey QC value-at-stake by industry</td><td>McKinsey top-down model, 2026</td><td>Indicative only</td><td><span class="badge mid">Low-medium</span></td></tr></tbody></table></div>
+<div class="callout biz"><b>Bottom line:</b> AI ROI is real but concentrated. Quantum ROI today is learning, IP and capability, not P&amp;L.</div>
+
+<h3 style="margin-top:34px">Business risks</h3>
+<div class="grid g4"><div class="card biz"><h4>Hype &amp; valuation</h4><p>Revenue vs valuation mismatch in both fields; Gartner puts GenAI in the Trough of Disillusionment (2026).</p></div><div class="card biz"><h4>Execution</h4><p>Pilots without workflow redesign (MIT, McKinsey).</p></div><div class="card biz"><h4>Lock-in &amp; concentration</h4><p>Gartner: assume a more concentrated AI supply base by 2030; no dominant quantum modality yet.</p></div><div class="card biz"><h4>Cryptographic</h4><p>Harvest-now-decrypt-later for long-lived data; migration takes years.</p></div><div class="card biz"><h4>Benchmark</h4><p>Quantum advantage claims are narrow and contested; classical algorithms improve, so re-test baselines.</p></div><div class="card biz"><h4>Supply</h4><p>Power, memory and chip constraints for AI; memory pricing pressure (Gartner).</p></div><div class="card biz"><h4>Regulatory &amp; geopolitical</h4><p>Export controls, EU AI Act, sovereign AI, PQC mandates, local opposition to data centres.</p></div><div class="card biz"><h4>AGI/ASI scenario</h4><p>Rapid capability jumps could reshape labour and competition. Keep scenario plans, not point forecasts.</p></div></div>
+
+<h3 style="margin-top:34px">Talent</h3>
+<div class="grid g2">
+<div class="card biz"><h4>Quantum: demand outruns supply</h4><p>McKinsey data cited by Forbes: roughly one qualified candidate per three open roles; universities graduate only a few thousand quantum-trained people a year (estimate from secondary sources). Dedicated full-time quantum roles have replaced part-time ones. Strategy: small hybrid teams (domain scientist + algorithm developer + HPC/cloud engineer), QCaaS, university partnerships.</p></div>
+<div class="card biz"><h4>AI: from model-building to integration</h4><p>The scarce skills are workflow integration, evaluation, data engineering and governance.</p></div></div>
+
+<h3 id="biz-playbook" style="margin-top:34px">What to do now: action playbook</h3>
+<p class="lead" style="margin-bottom:10px">PQC migration is the highest-urgency track; it is backed by federal deadlines and does not depend on quantum hardware arriving early.</p>
+<div class="grid g3">
+<div class="card biz"><h4>1. Post-quantum cryptography <span class="badge today">Highest urgency</span></h4><ol class="biz-steps"><li><b>Inventory cryptography (CBOM)</b> across apps, devices, vendors and certificates.</li><li><b>Prioritise by data shelf-life</b> (harvest-now-decrypt-later): long-lived confidential data first; key establishment (ML-KEM) before signatures (ML-DSA).</li><li><b>Write it into contracts:</b> require vendor PQC delivery dates; check FIPS 140-3 validation.</li><li><b>Align to the earliest applicable deadline:</b> federal high-value assets and contractors 2030–31; other civilian systems 2035; EU/France regulators earlier.</li><li><b>Build crypto-agility</b> (hybrid classical + PQC modes) so algorithms can be swapped.</li></ol></div>
+<div class="card biz"><h4>2. Quantum readiness <span class="badge mid">Start small</span></h4><ol class="biz-steps"><li><b>Appoint an owner and a 12-month plan.</b> Map exposure: optimisation-heavy, simulation-heavy or crypto-heavy. Split strategy into what can wait vs what must start now (Gartner frame).</li><li><b>Run 1–3 scoped pilots</b> on QCaaS/hybrid solvers with an explicit classical baseline and kill criteria. Co-development is becoming the standard model (McKinsey).</li><li><b>Start small.</b> One-third of large companies analysed spent over $10M in 2025; most don't need that. A small team plus cloud credits is enough to begin.</li><li><b>Build HPC–QC integration skills</b> and keep algorithm IP in-house.</li><li><b>Watch fault-tolerance milestones, not qubit counts:</b> IBM 2029, Quantinuum Sol 2027 / Apollo 2029, Google.</li></ol></div>
+<div class="card biz"><h4>3. AI adoption <span class="badge today">Now</span></h4><ol class="biz-steps"><li><b>Tie each use case to a P&amp;L metric</b> and redesign the workflow, not just add a copilot.</li><li><b>Embedded AI first for quick wins;</b> custom/agentic systems only where you hold a data advantage.</li><li><b>Governance and cost control:</b> usage tracking, model portability, data sovereignty.</li><li><b>Scenario-plan for much more capable AI</b> (staffing, security, partner concentration) without committing capital to speculative timelines.</li><li><b>Don't be the bag-holder of AI infrastructure:</b> rent capacity and keep multi-vendor options; impairment risk sits with providers, but price shocks and discontinuations reach customers.</li></ol></div></div>
+<div class="callout biz"><b>The deadlines.</b> US Executive Order 'Securing the Nation Against Advanced Cryptographic Attacks' (signed 22 Jun 2026; 91 FR 38483) requires federal high-value assets to use PQC for key establishment by <b>31 Dec 2030</b> and signatures by <b>31 Dec 2031</b>, with a FAR rule for contractors proposed by 19 Dec 2026. Other civilian systems: 2035 (OMB M-26-15). NIST IR 8547's 2030/2035 dates are still draft. Sources disagree on the order's number, so cite it by title and date. Gartner: fewer than half of CISOs have started PQC, and only 24% of those show measurable progress. No crypto-relevant quantum computer exists today; Gidney (Google, 2025) estimated RSA-2048 needs under 1M noisy qubits.</div>
+
+<details><summary>Sources for this section</summary><ul class="biz-src"><li><a href="https://www.mckinsey.com/capabilities/mckinsey-technology/our-insights/mckinsey-quantum-technology-monitor-2026-a-commercial-tipping-point" target="_blank" rel="noopener">McKinsey, Quantum Technology Monitor 2026 (Apr 2026)</a></li><li><a href="https://mckinsey.com/capabilities/operations/our-insights/the-state-of-ai" target="_blank" rel="noopener">McKinsey, The State of AI: Global Survey 2025</a></li><li><a href="https://bcg.com/press/18july2024-quantum-computing-create-up-to-850-billion-of-economic-value-2040" target="_blank" rel="noopener">BCG, Quantum Computing On Track to Create Up to $850B of Economic Value by 2040 (Jul 2024)</a></li><li><a href="https://bain.com/it/insights/quantum-computing-moves-from-theoretical-to-inevitable-technology-report-2025" target="_blank" rel="noopener">Bain, Quantum Computing Moves from Theoretical to Inevitable (2025)</a></li><li><a href="https://prnewswire.com/news-releases/2-trillion-in-new-revenue-needed-to-fund-ais-scaling-trend---bain--companys-6th-annual-global-technology-report-302563362.html" target="_blank" rel="noopener">Bain, Global Technology Report (23 Sep 2025)</a></li><li><a href="https://gartner.com/en/newsroom/press-releases/2026-09-16-gartner-forecasts-worldwide-ai-spending-to-grow-49-point-5-percent-in-2026" target="_blank" rel="noopener">Gartner, AI spending forecast (16 Sep 2026)</a></li><li><a href="https://fortune.com/2026/10/21/ai-boom-5-trillion-paying-itself-data-centers" target="_blank" rel="noopener">Gartner impairment/revenue-gap estimate via Fortune (Oct 2026)</a></li><li><a href="https://gartner.com/en/articles/quantum-computing-readiness" target="_blank" rel="noopener">Gartner, What CIOs Need to Know About Quantum Computing</a></li><li><a href="https://pitchbook.com/news/reports/q2-2026-bit-by-qubit-global-quantum-computing-funding-hits-new-records-and-is-accelerating" target="_blank" rel="noopener">PitchBook, Q2 2026 Bit by Qubit</a></li><li><a href="https://datacenterdynamics.com/en/news/moodys-hyperscaler-capex-forecasts-marked-up-by-85bn-to-close-in-on-1trn-by-2027" target="_blank" rel="noopener">Moody&#x27;s hyperscaler capex via DCD</a></li><li><a href="https://finance.yahoo.com/technology/ai/articles/citi-sees-amazon-microsoft-google-061220266.html" target="_blank" rel="noopener">Citi capex via Yahoo Finance</a></li><li><a href="https://cnbc.com/amp/2026/05/28/anthropic-open-ai-startup-value.html" target="_blank" rel="noopener">Anthropic Series H (CNBC, 28 May 2026)</a></li><li><a href="https://isomorphiclabs.com/press/isomorphic-labs-funding" target="_blank" rel="noopener">Isomorphic Labs funding</a></li><li><a href="https://nature.com/articles/s41591-025-03743-2" target="_blank" rel="noopener">Insilico rentosertib Phase IIa, Nature Medicine</a></li><li><a href="https://ibm.com/quantum/blog/hsbc-algorithmic-bond-trading" target="_blank" rel="noopener">HSBC–IBM bond trading</a></li><li><a href="https://nature.com/articles/s41586-025-08737-1" target="_blank" rel="noopener">JPMorgan certified randomness, Nature</a></li><li><a href="https://www.dwavequantum.com/company/newsroom/press-release/in-production-ford-otosan-deploys-vehicle-manufacturing-application-built-with-d-wave-technology" target="_blank" rel="noopener">Ford Otosan / D-Wave in production</a></li><li><a href="https://quantinuum.com/news/bmw-group-airbus-and-quantinuum-collaborate-to-fast-track-sustainable-mobility-research-using-cutting-edge-quantum-computers" target="_blank" rel="noopener">BMW, Airbus, Quantinuum</a></li><li><a href="https://ibm.com/quantum/blog/moderna-case-study" target="_blank" rel="noopener">Moderna–IBM case study</a></li><li><a href="https://ibm.com/case-studies/mitsubishi-chemical" target="_blank" rel="noopener">Mitsubishi Chemical–IBM</a></li><li><a href="https://research.google/blog/a-verifiable-quantum-advantage" target="_blank" rel="noopener">Google, A verifiable quantum advantage</a></li><li><a href="https://arxiv.org/pdf/2505.15917.pdf" target="_blank" rel="noopener">Gidney, RSA-2048 estimate (arXiv 2505.15917)</a></li><li><a href="https://globalriskinstitute.org/publication/quantum-threat-timeline-report-2025" target="_blank" rel="noopener">Global Risk Institute, Quantum Threat Timeline 2025</a></li><li><a href="https://postquantum.com/security-pqc/trump-pqc-executive-order-2030-deadline/" target="_blank" rel="noopener">US PQC executive order (secondary analysis)</a></li><li><a href="https://finance.yahoo.com/news/mit-report-95-generative-ai-105412686.html" target="_blank" rel="noopener">MIT NANDA coverage</a></li><li><a href="https://forbes.com/councils/forbesbusinesscouncil/2026/08/06/quantums-real-bottleneck-may-be-people-instead-of-capital" target="_blank" rel="noopener">Quantum talent gap (Forbes, Aug 2026)</a></li><li><a href="https://deepmind.google/blog/millions-of-new-materials-discovered-with-deep-learning/" target="_blank" rel="noopener">DeepMind GNoME</a></li></ul>
+<p class="src-note">Some figures come from secondary sources (trade press, aggregators) and appear only where labelled and corroborated. We did not verify Isomorphic's clinical stage, individual hyperscaler Q3-2026 capex, or the '171% agent ROI' claim against primary documents.</p></details>
+</div></section>
+
+<section class="sec" id="conclusion"><div class="container">
+<div class="eyebrow biz">Verdict</div>
+<h2>The <span class="grad">bottom line</span></h2>
+<p class="lead">Superintelligence and quantum computing are two separate technology bets that touch in a few real places. They are not one thing.</p>
+<div class="grid g2">
+<div class="card ai"><h4>1. AI is the present; superintelligence is a scenario.</h4><p>AI spending is forecast at $2.67T in 2026 (Gartner), yet only 39% of firms report enterprise-level EBIT impact. AGI has no agreed definition or date, so plan with scenarios, not dates.</p></div>
+<div class="card q"><h4>2. Quantum is early-commercial, not yet useful at scale.</h4><p>Revenue is above $1B (2025, McKinsey), and pilots like HSBC and Ford Otosan are real but narrow. Gartner puts production-grade fault tolerance 5–10 years out.</p></div>
+<div class="card biz"><h4>3. The real intersection is hybrid workflows and security.</h4><p>AI + HPC + QPU pipelines, AI for quantum error correction, and PQC as the common denominator. We found no consensus evidence that superintelligence needs quantum hardware, and no demonstrated quantum advantage on commercial ML.</p></div>
+<div class="card biz"><h4>4. Act now on cryptography; stay disciplined on the rest.</h4><p>PQC migration is the one high-certainty action, with US deadlines in 2030 and 2031. Pilot quantum small with kill criteria, tie AI to P&amp;L, and treat valuations in both fields with caution (Gartner flags over $3.5T of AI infrastructure at impairment risk).</p></div>
+</div>
+
+<h3 style="margin-top:34px">What would change this view</h3>
+<div class="grid g2">
+<div class="card"><h4>Towards faster / bigger</h4><ul>
+<li>Peer-reviewed, commercially priced quantum advantage on a business workload, with fair classical baselines.</li>
+<li>Fault-tolerance milestones met on schedule (IBM Starling 2029, Quantinuum Apollo 2029).</li>
+<li>Credible evidence that quantum methods help train or run frontier AI.</li>
+<li>Audited production savings, not trials, from quantum pilots.</li></ul></div>
+<div class="card"><h4>Towards slower / smaller</h4><ul>
+<li>Classical algorithms closing the gap on claimed quantum advantages.</li>
+<li>AI revenue falling short of capex, triggering the impairments Gartner warns about.</li>
+<li>Enterprise AI returns staying concentrated rather than broadening.</li>
+<li>Evidence of a cryptographically relevant quantum machine (pulls PQC deadlines forward), or a long stall in error correction (pushes them back).</li></ul></div></div>
+
+<div class="callout"><b>Methodology and honesty note.</b> This guide was researched in October 2026 by a multi-agent system, not by human domain experts, and has not been peer reviewed. Figures were reproduced from the cited sources. Some came from secondary sources such as trade press and aggregators, and those are flagged in place. We left out or labelled low-confidence numbers (for example the '171% agent ROI'), and a few details were not checked against primary documents: Isomorphic's clinical stage, some hyperscaler capex splits, and McKinsey's 2035 QC revenue exhibit. Forecasts are projections, not outcomes. Verify before you act on a number, especially for investment or compliance decisions.</div>
+</div></section>
+<footer><div class="container">
+<p><b class="grad">Superintelligence x Quantum Computing: relationship and business guide</b></p>
+<p>Researched October 2026 by a multi-agent system. Educational overview, not investment, legal or security advice. Sources are listed in each section.</p>
+<p style="margin-top:10px"><a href="#overview">Back to top</a></p>
+</div></footer>
 </main><script src="js/main.js"></script></body></html>

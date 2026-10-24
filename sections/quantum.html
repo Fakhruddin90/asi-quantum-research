@@ -1,1 +1,311 @@
-<section class="sec" id="quantum"><div class="container">STUB quantum</div></section>
+<section class="sec" id="quantum"><div class="container">
+<div class="eyebrow q">Part 2 · Quantum computing</div>
+<h2>Quantum computing: real progress, <span class="grad">unproven payoff</span></h2>
+<p class="lead">Status as of late October 2026. Error correction has gone from "can logical error fall at all?" to dozens of logical qubits. Useful, large-scale machines are still targets, not deliveries. Labels used below: <span class="badge fact">primary source</span> <span class="badge claim">vendor claim</span> <span class="badge plausible">secondary / press</span></p>
+
+<div class="grid g4">
+  <div class="card q stat"><div class="num">~10⁻²–10⁻⁴</div><div class="lbl">physical gate error today</div><div class="src">textbook background</div></div>
+  <div class="card q stat"><div class="num">10⁹–10¹²</div><div class="lbl">reliable operations useful algorithms need</div><div class="src">textbook background</div></div>
+  <div class="card q stat"><div class="num">&lt;1M</div><div class="lbl">noisy qubits for RSA-2048 in under a week (Gidney, May 2025), down from 20M in 2019</div><div class="src">arXiv 2505.15917</div></div>
+  <div class="card q stat"><div class="num">2029</div><div class="lbl">where many vendor roadmaps cluster for first fault-tolerant machines (a target, not a forecast)</div><div class="src">author synthesis</div></div>
+</div>
+
+<!-- FUNDAMENTALS -->
+<h2 class="qc-h">1 · The fundamentals, in plain English</h2>
+<div class="grid g2">
+  <div class="card q">
+    <h3>Qubit &amp; superposition</h3>
+    <p>A qubit is a two-level quantum system. Its state is <b>a|0⟩ + b|1⟩</b>, and measuring it returns 0 or 1 with probabilities |a|² and |b|². <b>n</b> qubits carry 2ⁿ amplitudes.</p>
+    <p style="margin-top:8px">This is <b>not</b> "trying every answer at once." You read out only n classical bits. Useful algorithms use <b>interference</b> to boost the amplitudes of correct answers, so any speedup comes from structure in the problem.</p>
+  </div>
+  <div class="card q">
+    <h3>Entanglement &amp; gates</h3>
+    <p>Entangled states can't be written as a product of single-qubit states. They give correlations with no classical analogue, and algorithms consume them as a resource.</p>
+    <p style="margin-top:8px">Gates are unitary operations. Single-qubit gates plus one two-qubit entangler (CNOT/CZ) are universal. Clifford gates are easy to simulate classically. Non-Clifford gates (T, Toffoli) make circuits hard to simulate and dominate fault-tolerant cost.</p>
+    <div class="qc-gates"><span class="qc-gate">H</span><span class="qc-gate">X</span><span class="qc-gate">Z</span><span class="qc-gate">S</span><span class="qc-gate">T</span><span class="qc-gate">●─⊕</span></div>
+  </div>
+</div>
+
+<div class="card q">
+  <div class="qc-viz">
+    <svg width="560" height="210" viewBox="0 0 560 210" role="img" aria-label="Qubit Bloch sphere, a Bell-state circuit, and many physical qubits forming one logical qubit">
+      <defs><linearGradient id="qcg" x1="0" x2="1"><stop offset="0" stop-color="#06b6d4"/><stop offset="1" stop-color="#67e8f9"/></linearGradient></defs>
+      <g transform="translate(75,95)">
+        <circle r="55" fill="rgba(6,182,212,.06)" stroke="#67e8f9" stroke-opacity=".6"/>
+        <ellipse rx="55" ry="16" fill="none" stroke="#67e8f9" stroke-opacity=".35" stroke-dasharray="3 3"/>
+        <g class="qc-bloch-ring"><ellipse rx="55" ry="20" fill="none" stroke="#06b6d4" stroke-opacity=".5"/></g>
+        <line x1="0" y1="0" x2="30" y2="-40" stroke="url(#qcg)" stroke-width="3"/>
+        <circle cx="30" cy="-40" r="5" fill="#67e8f9"/>
+        <text x="-4" y="-64" fill="#9aa0c0" font-size="12">|0⟩</text><text x="-4" y="78" fill="#9aa0c0" font-size="12">|1⟩</text>
+        <text x="-48" y="106" fill="#9aa0c0" font-size="12">qubit state</text>
+      </g>
+      <g transform="translate(200,40)" font-family="ui-monospace,monospace" font-size="12">
+        <line x1="0" y1="20" x2="150" y2="20" stroke="#9aa0c0"/><line x1="0" y1="90" x2="150" y2="90" stroke="#9aa0c0"/>
+        <text x="-8" y="-4" fill="#9aa0c0" font-family="Inter,sans-serif">entangling circuit</text>
+        <rect x="20" y="6" width="28" height="28" rx="6" fill="rgba(6,182,212,.15)" stroke="#06b6d4"/><text x="29" y="25" fill="#67e8f9">H</text>
+        <line x1="100" y1="20" x2="100" y2="90" stroke="#67e8f9" stroke-width="2"/><circle cx="100" cy="20" r="5" fill="#67e8f9"/>
+        <circle cx="100" cy="90" r="11" fill="none" stroke="#67e8f9" stroke-width="2"/><line x1="100" y1="79" x2="100" y2="101" stroke="#67e8f9" stroke-width="2"/>
+        <text x="-6" y="14" fill="#9aa0c0">|0⟩</text><text x="-6" y="84" fill="#9aa0c0">|0⟩</text>
+        <text x="20" y="140" fill="#9aa0c0" font-family="Inter,sans-serif">→ correlated 0/0 or 1/1</text>
+      </g>
+      <g transform="translate(400,40)">
+        <text x="0" y="-4" fill="#9aa0c0" font-size="12">error correction</text>
+        <g fill="#06b6d4">
+          <circle class="qc-pulse" cx="20" cy="20" r="6"/><circle cx="60" cy="20" r="6"/><circle class="qc-pulse" cx="100" cy="20" r="6"/>
+          <circle cx="20" cy="60" r="6"/><circle class="qc-pulse" cx="60" cy="60" r="6"/><circle cx="100" cy="60" r="6"/>
+          <circle class="qc-pulse" cx="20" cy="100" r="6"/><circle cx="60" cy="100" r="6"/><circle class="qc-pulse" cx="100" cy="100" r="6"/>
+        </g>
+        <rect x="6" y="6" width="108" height="108" rx="12" fill="none" stroke="#67e8f9" stroke-opacity=".6" stroke-dasharray="4 4"/>
+        <text x="4" y="140" fill="#9aa0c0" font-size="12">many physical = 1 logical</text>
+      </g>
+    </svg>
+  </div>
+  <p class="qc-note" style="text-align:center">Schematic illustration, not to scale. Bloch sphere (one qubit) · Bell-pair circuit · physical qubits encoding one logical qubit.</p>
+</div>
+
+<div class="callout q"><b>Why error correction is the central problem.</b> Physical gates fail roughly 1 in 10² to 1 in 10⁴ operations, but useful algorithms need about 10⁹–10¹² reliable ones. Quantum error correction (QEC) encodes one <i>logical</i> qubit in many <i>physical</i> qubits and repeatedly measures error syndromes. It works only when physical error is below a code-dependent threshold (about 1% for the surface code). Better metrics than raw qubit count: two-qubit gate fidelity, coherence time, connectivity, gate speed, and logical error rate per cycle.</div>
+
+<!-- HARDWARE -->
+<h2 class="qc-h">2 · Hardware modalities compared</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Modality</th><th>Strengths</th><th>Weaknesses</th><th>Players</th></tr></thead>
+<tbody>
+<tr><td><b>Superconducting</b></td><td>Fast gates (ns–µs); mature chip fabrication</td><td>Dilution fridge (~15 mK); fixed 2D connectivity; wiring and scaling</td><td>IBM, Google, Rigetti, IQM, Alice&amp;Bob</td></tr>
+<tr><td><b>Trapped ion</b></td><td>Highest fidelities; all-to-all connectivity (QCCD shuttling); long coherence</td><td>Slow gates (µs–ms); harder to scale</td><td>Quantinuum, IonQ</td></tr>
+<tr><td><b>Neutral atom</b></td><td>Thousands of atoms; reconfigurable with optical tweezers</td><td>Slow cycle times; atom loss; hard mid-circuit readout</td><td>QuEra, Atom Computing, Pasqal, Infleqtion, Google (new program)</td></tr>
+<tr><td><b>Photonic</b></td><td>Room-temperature components; uses chip foundries; networking-friendly</td><td>Photon loss; probabilistic gates; huge component counts</td><td>PsiQuantum, Xanadu, Quandela</td></tr>
+<tr><td><b>Topological (Majorana)</b></td><td>Built-in error protection, in theory</td><td>Not yet convincingly demonstrated</td><td>Microsoft</td></tr>
+<tr><td><b>Annealing</b> (not gate-model)</td><td>4,400+ qubits; commercially sold</td><td>Optimization/sampling only; no universal computation</td><td>D-Wave</td></tr>
+<tr><td><b>Spin / silicon</b></td><td>CMOS-compatible</td><td>Early</td><td>Diraq, Intel</td></tr>
+</tbody></table></div>
+
+<!-- COMPANIES -->
+<h2 class="qc-h">3 · State of play by company</h2>
+<div class="grid g3">
+  <div class="card q">
+    <div class="qc-co"><h3>Google Quantum AI</h3><span class="qc-tag">Superconducting</span></div>
+    <ul>
+      <li><b>Willow</b> (105 qubits, Dec 2024, <i>Nature</i>): surface-code logical error fell by Λ≈2.14 per distance step (3→5→7). At d=7 (101 physical qubits): 0.143%/cycle, and the logical qubit outlived the best physical qubit by 2.4×. <span class="badge fact">primary</span></li>
+      <li><b>Quantum Echoes</b> (OTOC, <i>Nature</i>, 22 Oct 2025): claimed first <i>verifiable</i> advantage, ~13,000× faster than the best classical algorithm for that task. It is a physics benchmark, not a commercially useful computation. <span class="badge claim">vendor claim</span></li>
+      <li>Mar 2026: set a <b>2029</b> deadline for its own PQC migration. <span class="badge fact">primary</span></li>
+      <li>Mar 2026: hired Adam Kaufman (JILA) to lead a neutral-atom program. <span class="badge plausible">secondary</span></li>
+      <li>No new 2026 fault-tolerance date found.</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>IBM</h3><span class="qc-tag">Superconducting</span></div>
+    <ul>
+      <li>Nov 2025: <b>Nighthawk</b> (120 qubits, 218 tunable couplers, up to 5,000 two-qubit gates, targeting 7,500 in 2026 and 15,000 on 1,000+ qubits by 2028) and <b>Loon</b> (all hardware elements for fault tolerance). Real-time qLDPC decoding was 10× faster than the prior approach. <span class="badge fact">primary</span></li>
+      <li>Jun 2026: committed <b>&gt;$10B over five years</b>. <span class="badge fact">primary</span></li>
+      <li>Jul 30 2026, with UChicago: <b>70 logical qubits</b>, 2,415 logical 2Q gates, 468 logical T gates in a verifiable sampling task. IBM: "firmly in the quantum advantage era." A sampling benchmark; spoofing rebuttals have historically followed such claims. <span class="badge claim">vendor claim</span></li>
+      <li>Aug 2026: two cryogenic modules joined and cooled in one environment.</li>
+      <li>Roadmap: <b>Starling 2029</b> (~200 logical qubits, 100M logical gates); Blue Jay 2033+ (~2,000 logical qubits, 1B gates).</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>Quantinuum</h3><span class="qc-tag">Trapped ion · Nasdaq: QNT</span></div>
+    <ul>
+      <li><b>Helios</b> (commercial Nov 2025): 98 barium-137 qubits, QCCD. 2Q fidelity ≈99.92%, 1Q 99.9975%. Reported 48 error-corrected (~2:1 encoding) and 94 error-detected logical qubits. <span class="badge plausible">secondary</span></li>
+      <li>Sep 2026: "Helix" fault-tolerant architecture shown on Helios. <span class="badge plausible">secondary</span></li>
+      <li>Oct 19 2026: <b>99.9995% logical fidelity</b> (≈5 errors per million operations, color code), 10× better than its own Sep result. Claims 100× better than Google's published result. This is a logical-memory primitive, not a full algorithm at scale, and the comparison is vendor-framed. <span class="badge claim">vendor claim</span></li>
+      <li>Roadmap: Sol 2027; <b>Apollo (universal FT) 2029</b>; Lumos (&gt;1M physical qubits) early 2030s.</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>IonQ</h3><span class="qc-tag">Trapped ion · NYSE: IONQ</span></div>
+    <ul>
+      <li>Oct 2025: <b>99.99% two-qubit fidelity</b> using Oxford Ionics-derived electronic qubit control (laser-free). <span class="badge fact">primary</span></li>
+      <li>Aug 2026: closed the SkyWater (chip foundry) acquisition. Q2 revenue +287% y/y; 2026 guidance $280–290M. Much of the growth is acquisition-driven (organic/inorganic split not verified). <span class="badge fact">primary</span></li>
+      <li>Sep 2026: <b>Superion 256</b> (256-qubit chip fabbed at SkyWater); customer deliveries in 2027.</li>
+      <li>Earlier claim of ~2M physical / 80,000 logical qubits by 2030 was not re-verified. Treat as aspirational. <span class="badge claim">vendor claim</span></li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>Microsoft (+ Atom Computing)</h3><span class="qc-tag">Topological / neutral atom</span></div>
+    <ul>
+      <li><b>Majorana 1</b> (Feb 2025): a <i>Nature</i> peer-review note said the data were not evidence for Majorana zero modes. In Jun 2026 <i>Nature</i> published a formal critique arguing trivial explanations. Microsoft disputes it. <span class="badge plausible">disputed</span></li>
+      <li><b>Majorana 2</b> (Jun 2026): claims 1,000× better reliability, ~20 s mean "lifetime", and a scalable machine by 2029. The lifetime is a Microsoft-defined parity-type metric, not a gate fidelity or logical qubit. No independent replication found. <span class="badge claim">vendor claim</span></li>
+      <li><b>Magne</b> (Denmark, with Atom Computing): ~1,225 neutral-atom qubits targeting 50 logical, €80M funded, operational ~early 2027. Under construction, not delivered. <span class="badge plausible">secondary</span></li>
+      <li>Nov 2024: 24 entangled logical qubits (Microsoft/Atom). <span class="badge fact">primary</span></li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>PsiQuantum</h3><span class="qc-tag">Photonic</span></div>
+    <ul>
+      <li>$1B Series E in 2025 at ~$7B valuation (&gt;$3B total raised). <span class="badge plausible">secondary</span></li>
+      <li>Building utility-scale sites in Chicago and Brisbane (Moreton Bay Central); chips at GlobalFoundries. Goal: ~1M-qubit-class fault-tolerant machine.</li>
+      <li><b>No fault-tolerant demonstration yet.</b> Targets of about 2027–2029 are aspirational.</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>QuEra / Harvard / MIT</h3><span class="qc-tag">Neutral atom</span></div>
+    <ul>
+      <li>Sep 2025 (<i>Nature</i>): a 3,000-qubit array ran continuously for hours with atom replenishment.</li>
+      <li>Nov 2025 (<i>Nature</i>): 448-atom fault-tolerant architecture, errors detected and removed below a threshold.</li>
+      <li>QuEra raised &gt;$230M (Dec 2025). <span class="badge fact">primary</span></li>
+      <li>A reported Jan 2026 "~96 logical qubits" result appears in one aggregator only and is <b>unverified</b>; not relied on here.</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>Infleqtion</h3><span class="qc-tag">Neutral atom</span></div>
+    <ul>
+      <li>Sep 24 2026: 30 logical qubits entangled from 80 physical atoms. Trade press notes it relies on <b>error detection</b>, not full correction. <span class="badge claim">vendor claim</span></li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>Rigetti</h3><span class="qc-tag">Superconducting</span></div>
+    <ul>
+      <li>108-qubit Cepheus-1-108Q was delayed in Jan 2026, then generally available Apr 7 2026 (Rigetti QCS, Amazon Braket). <span class="badge fact">primary</span></li>
+      <li>Small-scale; no QEC milestone.</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>D-Wave</h3><span class="qc-tag">Annealing → gate model</span></div>
+    <ul>
+      <li>Mar 2025 (<i>Science</i>): claimed "quantum supremacy" on a materials-simulation problem. Classical tensor-network rebuttals attempted to match it. <span class="badge plausible">contested</span></li>
+      <li>Jan 2026: bought Quantum Circuits (dual-rail, gate-model) for $550M. Target: 100 logical qubits by end-2032. <span class="badge plausible">secondary</span></li>
+      <li>Q1 2026 revenue <b>$2.9M (−81% y/y)</b>, record bookings $33.4M driven mainly by a $20M sale to Florida Atlantic University. Shows how lumpy and small real quantum revenue is.</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <div class="qc-co"><h3>DARPA QBI</h3><span class="qc-tag">Government validation</span></div>
+    <ul>
+      <li>Tests whether <b>utility-scale</b> quantum computing (value &gt; cost) is achievable <b>by 2033</b>.</li>
+      <li>Stage B selected 11 companies (Nov 2025). Oct 7 2026: Stage C adds Atom Computing, Diraq, IBM and IonQ, joining Microsoft and PsiQuantum. <span class="badge fact">primary</span></li>
+      <li>Quantinuum, Google and QuEra Stage C status not confirmed; trade press mentions six "final test" participants, not reconciled.</li>
+      <li>DARPA: "we increasingly expect that someone will build a utility-scale quantum computer by 2033." Evaluating, not guaranteeing.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<h2 class="qc-h">4 · Error-correction &amp; logical-qubit milestones</h2>
+<div class="timeline">
+  <div class="ev"><div class="when">Nov 2024 · primary</div><h4>Microsoft + Atom Computing: 24 entangled logical qubits</h4><p class="qc-note">Neutral atoms.</p></div>
+  <div class="ev"><div class="when">Dec 2024 · primary</div><h4>Google Willow: below-threshold surface code</h4><p class="qc-note">d=7, Λ≈2.14, 0.143% logical error per cycle.</p></div>
+  <div class="ev"><div class="when">Sep–Nov 2025 · primary / secondary</div><h4>Harvard/QuEra: 3,000-qubit continuous operation; 448-atom fault-tolerant architecture</h4></div>
+  <div class="ev"><div class="when">Nov 2025 · secondary / vendor</div><h4>Quantinuum Helios: 48 error-corrected / 94 error-detected logical qubits</h4></div>
+  <div class="ev"><div class="when">Nov 2025 · primary</div><h4>IBM Loon: all fault-tolerance hardware elements; qLDPC decoder 10× faster</h4></div>
+  <div class="ev"><div class="when">Jul 2026 · primary (vendor result)</div><h4>IBM/UChicago: 70 logical qubits, 2,415 logical 2Q gates, 468 logical T gates</h4></div>
+  <div class="ev"><div class="when">Sep 2026 · vendor claim</div><h4>Infleqtion: 30 logical qubits from 80 atoms (error-detected)</h4></div>
+  <div class="ev"><div class="when">Oct 2026 · vendor claim</div><h4>Quantinuum: 99.9995% logical fidelity (color code, Helios)</h4></div>
+</div>
+<div class="callout q"><b>Honest read.</b> Logical fidelities near 10⁻⁵–10⁻⁶ per operation on small codes have been shown. Not yet shown: the ~100–1,000+ logical qubits at ~10⁻⁹–10⁻¹² error for ≥10⁸–10⁹ gates that Shor on RSA/ECC or industrially valuable chemistry needs. "Logical qubit" counts are <b>not comparable across vendors</b>: codes, error detection vs correction, post-selection, and encoding overhead (2:1 vs hundreds:1) all differ.</div>
+
+<!-- ROADMAP -->
+<h2 class="qc-h">5 · Roadmaps and honest timelines</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Vendor</th><th>Stated fault-tolerance target</th><th>Status of the claim</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td><b>IBM</b></td><td>Starling 2029 (200 logical qubits, 10⁸ gates); Blue Jay 2033+</td><td><span class="badge claim">vendor claim</span></td><td>Modular qLDPC; IBM says 2026 deliverables are on track</td></tr>
+<tr><td><b>Quantinuum</b></td><td>Apollo 2029; Lumos early 2030s (&gt;1M physical)</td><td><span class="badge claim">vendor claim</span></td><td>Public company; vendor-reported</td></tr>
+<tr><td><b>Microsoft</b></td><td>"Scalable quantum computer" 2029</td><td><span class="badge hype">disputed science</span></td><td>Topological approach contested; Magne (50 logical qubits, 2027) is the nearer deliverable</td></tr>
+<tr><td><b>Google</b></td><td>Previously ~2029 for a useful error-corrected machine; no new 2026 date found</td><td><span class="badge plausible">not re-verified</span></td><td>Moved its PQC deadline to 2029</td></tr>
+<tr><td><b>IonQ</b></td><td>~2M physical qubits by 2030</td><td><span class="badge hype">aspirational</span></td><td>Superion 256 deliveries 2027; target not re-verified</td></tr>
+<tr><td><b>PsiQuantum</b></td><td>Utility-scale sites, late 2020s</td><td><span class="badge hype">aspirational</span></td><td>No demos at scale yet</td></tr>
+<tr><td><b>D-Wave (gate model)</b></td><td>100 logical qubits by end-2032</td><td><span class="badge claim">vendor claim</span></td><td>Conservative relative to others</td></tr>
+<tr><td><b>DARPA QBI</b></td><td>Utility-scale by 2033 is being <i>tested</i></td><td><span class="badge fact">independent evaluation</span></td><td>Evaluating, not guaranteeing</td></tr>
+</tbody></table></div>
+<p class="qc-note">Nothing in this table has been independently verified as delivered; only DARPA is an outside evaluator.</p>
+<div class="callout"><b>Synthesis (author's judgment).</b> Many credible players cluster on <b>2029</b> for first small-to-mid-scale fault-tolerant machines, with hundreds of logical qubits at best and likely too small for RSA-2048. Cryptographically relevant machines are plausibly in the <b>early-to-mid 2030s</b>, with wide uncertainty. Timelines pulled in during 2025–26, but roadmap dates have historically slipped (Rigetti's 108-qubit delay in Jan 2026). Treat 2029 as "target if everything works," not a forecast.</div>
+
+<!-- ALGORITHMS -->
+<h2 class="qc-h">6 · Algorithms and realistic impact</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Algorithm</th><th>Speedup</th><th>Realistic impact</th></tr></thead>
+<tbody>
+<tr><td><b>Shor</b><br><span class="badge proven">proven</span></td><td>Superpolynomial (exponential-ish)</td><td>Breaks RSA/ECC/DH. Gidney (May 2025): RSA-2048 in under a week with &lt;1M noisy qubits (20M in 2019 estimate). Google (Mar 2026): ECDLP-256 (secp256k1) in ≤1,200–1,450 logical qubits, 70–90M Toffoli gates, &lt;500,000 physical qubits, minutes of runtime assuming 10⁻³ physical error; circuits withheld, zero-knowledge proof published. A trapped-ion preprint (arXiv 2609.05625, unreviewed) estimates 26 days on a 20,000-qubit design. Largest honest demos remain toy-sized.</td></tr>
+<tr><td><b>Grover</b><br><span class="badge proven">proven</span></td><td>Quadratic (√N)</td><td>Modest. Halves effective symmetric key length, so AES-256 stays safe. Error-correction overhead often erases the gain at practical sizes.</td></tr>
+<tr><td><b>Quantum simulation</b><br><span class="badge plausible">most credible</span></td><td>Potentially exponential for some systems</td><td>Most credible long-term commercial use (chemistry, materials). Strongly correlated molecules need fault tolerance. Classical methods (DMRG, tensor networks, neural states) keep eroding advantage claims; where advantage in chemistry first appears is actively disputed.</td></tr>
+<tr><td><b>VQE / QAOA</b><br><span class="badge hype">no proven speedup</span></td><td>None proven</td><td>NISQ-era hybrid heuristics. Hit barren plateaus and noise limits; no clear evidence of practical advantage over classical optimization.</td></tr>
+<tr><td><b>HHL / quantum linear algebra</b><br><span class="badge hype">heavy caveats</span></td><td>Exponential under strong caveats</td><td>Needs efficient state loading (qRAM) and returns only global properties of the solution. "Dequantization" weakened many ML claims. Not a practical near-term tool.</td></tr>
+<tr><td><b>Phase estimation / QSVT</b></td><td>Core subroutines</td><td>Underpin chemistry and many fault-tolerant algorithms.</td></tr>
+</tbody></table></div>
+
+<div class="qc-bars" aria-label="Shor qubit estimates">
+  <div class="qc-bar"><span>RSA-2048, 2019 est.</span><i style="width:100%"></i><b>~20M</b></div>
+  <div class="qc-bar"><span>RSA-2048, May 2025</span><i style="width:5%"></i><b>&lt;1M</b></div>
+  <div class="qc-bar"><span>ECDLP-256, Mar 2026</span><i style="width:2.5%"></i><b>&lt;500k</b></div>
+</div>
+<p class="qc-note">Physical-qubit estimates for Shor-type attacks (bar widths proportional, ceilings used). The ECDLP figure assumes 10⁻³ physical error on superconducting hardware. These are resource estimates, not demonstrations.</p>
+
+<!-- PQC -->
+<h2 class="qc-h">7 · Post-quantum cryptography: the part that is already real</h2>
+<div class="grid g2">
+  <div class="card q">
+    <h3>Standards</h3>
+    <ul>
+      <li>13 Aug 2024: NIST finalized <b>FIPS 203</b> (ML-KEM), <b>FIPS 204</b> (ML-DSA), <b>FIPS 205</b> (SLH-DSA).</li>
+      <li>HQC selected Mar 2025 as backup KEM (draft expected).</li>
+      <li>FIPS 206 (FN-DSA/Falcon) was still pending per sources found. <b>Verify current status at csrc.nist.gov.</b></li>
+      <li>NIST IR 8547 (draft): deprecate RSA/ECC at 112-bit security after <b>2030</b>, disallow after <b>2035</b>.</li>
+    </ul>
+  </div>
+  <div class="card q">
+    <h3>Deployment</h3>
+    <ul>
+      <li>Hybrid X25519MLKEM768 is on by default in major browsers. Cloudflare reported over two-thirds (~70%) of human browser traffic post-quantum protected in 2026 (secondary sources).</li>
+      <li>This covers key exchange, which answers <b>harvest-now-decrypt-later</b>. <b>Certificates and signatures lag.</b></li>
+      <li>Google moved its own migration deadline to <b>2029</b> (Mar 25 2026), six years ahead of NIST's 2035 backstop.</li>
+      <li>AES-256 and hashes are considered fine against known quantum attacks.</li>
+      <li>Bitcoin/Ethereum signatures are ECDLP-based, so Google's Mar 2026 paper adds urgency. No cryptographically relevant quantum computer exists today.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- HYPE VS REALITY -->
+<h2 class="qc-h">8 · Hype vs reality</h2>
+<div class="callout warn"><b>Read this before repeating any quantum marketing line.</b>
+<ul style="margin:10px 0 0 20px;color:var(--mute)">
+  <li><b>"Advantage" claims keep being contested.</b> Random circuit sampling, OTOC and D-Wave annealing results all drew classical-simulation counters. IBM now runs a public Quantum Advantage Tracker to adjudicate. Advantages shown so far are on contrived or physics-benchmark tasks.</li>
+  <li><b>No commercially useful advantage has been conclusively demonstrated</b> for a real business problem (our conclusion from the sources; vendors assert otherwise for narrow cases).</li>
+  <li><b>Logical-qubit counts are slippery</b>: detection vs correction, post-selection, code distance and overhead differ.</li>
+  <li><b>Revenue is small:</b> D-Wave Q1 2026 revenue was $2.9M; IonQ's growth is largely acquisitions (SkyWater, Oxford Ionics). Valuations are far above revenue and equities are volatile.</li>
+  <li><b>Data loading bottleneck:</b> quantum computers are poor at big-data problems, which matters for any "quantum for AI/ML" pitch.</li>
+  <li><b>Roadmap risk:</b> delays are common; 2029 assumes cryogenics, wiring, decoders, yield and manufacturing scale on plan.</li>
+  <li><b>Not a general accelerator:</b> no known exponential speedup for most optimization, NP-complete problems or deep-learning training.</li>
+  <li><b>Source quality:</b> much 2026 coverage is press-release echo or aggregator content; prefer the primary sources below.</li>
+</ul></div>
+<div class="callout q"><b>Open items we could not resolve:</b> Quantinuum Apollo/Sol details, Google's current FT roadmap and IonQ's 2030 targets were not re-verified; QuEra's "96 logical qubits" is aggregator-only; the full DARPA Stage C roster is unconfirmed; FIPS 206 and HQC draft status need re-checking.</div>
+
+<!-- SOURCES -->
+<details><summary>Sources (key URLs from the research file)</summary>
+<p><b>Primary / near-primary</b></p>
+<ul>
+<li><a href="https://ibm.com/roadmaps/quantum">IBM quantum roadmap</a></li>
+<li><a href="https://newsroom.ibm.com/2025-11-12-ibm-delivers-new-quantum-processors,-software,-and-algorithm-breakthroughs-on-path-to-advantage-and-fault-tolerance">IBM, 12 Nov 2025 (Nighthawk, Loon)</a></li>
+<li><a href="https://newsroom.ibm.com/2026-06-02-ibm-commits-more-than-10-billion-to-quantum-computing,-funding-its-roadmap-from-todays-leading-systems-to-the-worlds-first-fault-tolerant-quantum-computers">IBM $10B commitment, 2 Jun 2026</a></li>
+<li><a href="https://newsroom.ibm.com/2026-07-30-ibm-and-the-university-of-chicago-demonstrate-quantum-advantage,-establishing-trusted-quantum-computation-on-logical-circuits">IBM/UChicago 70 logical qubits, 30 Jul 2026</a></li>
+<li><a href="https://newsroom.ibm.com/2026-08-19-ibm-connects-its-first-modular-cryogenic-systems-in-milestone-toward-fault-tolerant-quantum-computing">IBM modular cryogenic systems, 19 Aug 2026</a></li>
+<li><a href="https://research.google/blog/a-verifiable-quantum-advantage">Google Quantum Echoes</a></li>
+<li><a href="https://www.nature.com/articles/s41586-024-08449-y">Google Willow QEC (Nature)</a></li>
+<li><a href="https://blog.google/innovation-and-ai/technology/safety-security/cryptography-migration-timeline">Google PQC 2029 timeline</a></li>
+<li><a href="https://quantumai.google/static/site-assets/downloads/cryptocurrency-whitepaper.pdf">Google ECC whitepaper</a> · <a href="https://arxiv.org/pdf/2603.28846">arXiv 2603.28846</a></li>
+<li><a href="https://arxiv.org/pdf/2505.15917.pdf">Gidney, RSA-2048 (arXiv 2505.15917)</a></li>
+<li><a href="https://www.prnewswire.com/news-releases/quantinuum-breaks-error-correction-world-record-by-10x-validating-its-leading-path-to-fault-tolerant-quantum-computing-by-2029-302912556.html">Quantinuum, 19 Oct 2026 (vendor PR)</a></li>
+<li><a href="https://ionq.com/news/ionq-achieves-landmark-result-setting-new-world-record-in-quantum-computing">IonQ 99.99%</a> · <a href="https://ionq.com/news/ionq-launches-superion-product-line-industry-leading-upgradeable-platform-designed-to-scale-manufacturable-fault-tolerant-quantum-computing">IonQ Superion 256</a> · <a href="https://ionq.com/news/ionq-announces-record-second-quarter-2026-revenues-growing-287-yoy">IonQ Q2 2026</a></li>
+<li><a href="https://news.microsoft.com/source/features/innovation/majorana-2-microsoft-discovery-agentic-ai">Microsoft Majorana 2</a> · <a href="https://www.nature.com/articles/s41586-026-10567-8">Majorana critique (Nature)</a></li>
+<li><a href="https://investors.rigetti.com/news-releases/news-release-details/rigetti-announces-general-availability-108-qubit-system">Rigetti 108-qubit GA</a></li>
+<li><a href="https://dwavequantum.com/company/newsroom/press-release/d-wave-reports-first-quarter-2026-results">D-Wave Q1 2026</a></li>
+<li><a href="https://quera.com/press-releases/quera-computing-marks-record-2025-as-the-year-of-fault-tolerance-and-over-230m-of-new-capital-to-accelerate-industrial-deployment">QuEra 2025 review</a> · <a href="https://arxiv.org/pdf/2506.20661">Harvard 448-atom (arXiv)</a></li>
+<li><a href="https://infleqtion.com/infleqtion-achieves-30-entangled-logical-qubits-on-its-sqale-quantum-computer">Infleqtion 30 logical qubits</a></li>
+<li><a href="https://darpa.mil/research/programs/quantum-benchmarking-initiative">DARPA QBI</a> · <a href="https://darpa.mil/research/programs/quantum-benchmarking-initiative/stage-b-selection">Stage B</a> · <a href="https://darpa.mil/news/2026/four-more-teams-enter-quantum-benchmarking-initiative-final-stage">Stage C</a></li>
+<li><a href="https://csrc.nist.gov/pubs/ir/8547/ipd">NIST IR 8547 (draft)</a></li>
+</ul>
+<p><b>Secondary (use with caution)</b></p>
+<ul>
+<li><a href="https://quantumworldcongress.com/news/quantinuums-next-quantum-milestone-is-not-just-a-bigger-computer-it-is-a-computing-era">Quantinuum at Quantum World Congress 2026</a></li>
+<li><a href="https://hpcwire.com/2025/11/05/quantinuum-introduces-helios-quantum-system-as-roadmap-advances-toward-apollo">HPCwire: Helios</a> · <a href="https://qbitcount.com/history/2025-quantinuum-helios.html">qbitcount</a></li>
+<li><a href="https://postquantum.com/security-pqc/google-quantum-bitcoin-ecdlp">Google ECC analysis (postquantum.com)</a></li>
+<li><a href="https://arxiv.org/html/2609.05625v1">Trapped-ion ECDLP preprint (unreviewed)</a></li>
+<li><a href="https://theverge.com/tech/956450/nature-microsoft-quantum-computing-majorana-1-claims">Majorana dispute (The Verge)</a></li>
+<li><a href="https://quantumcomputingreport.com/denmarks-qunorth-to-acquire-50-logical-qubit-magne-quantum-computer-from-atom-computing-and-microsoft">Magne</a></li>
+<li><a href="https://entangledfuture.com/company/psiquantum">PsiQuantum</a> · <a href="https://ia.acs.org.au/article/2026/psiquantum-changes-location-for--1bn-quantum-build.html">PsiQuantum Brisbane</a></li>
+<li><a href="https://postquantum.com/quantum-research/harvard-mit-continuous-3000-qubit">Harvard/MIT 3,000 qubits</a></li>
+<li><a href="https://postquantum.com/industry-news/d-wave-quantum-advantage">D-Wave supremacy claim</a> · <a href="https://quantum-data.com/events/2026-05-12-d-wave-q1-2026-earnings-quantum-circuits-dual-rail-roadmap">D-Wave Q1 2026 / Quantum Circuits</a></li>
+<li><a href="https://arxiv.org/html/2603.18825v2">Tensor-network critique of advantage claims</a> · <a href="https://arxiv.org/html/2603.28648">Chemistry advantage skepticism</a></li>
+<li><a href="https://ajayk.sh/blog/quantum-computing-hardware-error-correction-2026">2026 hardware review blog</a></li>
+<li><a href="https://myssl.info/learn/post-quantum-tls">PQC TLS</a> · <a href="https://czinda.io/posts/state-of-pqc-may-2026">State of PQC, May 2026</a> · <a href="https://pqaudit.org">pqaudit.org</a></li>
+</ul>
+</details>
+</div></section>

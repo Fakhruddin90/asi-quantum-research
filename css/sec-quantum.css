@@ -1,0 +1,21 @@
+/* Quantum section extras (prefix qc-) */
+#quantum h2.qc-h{margin-top:56px;font-size:clamp(22px,3vw,32px)}
+#quantum .qc-viz{display:flex;gap:20px;flex-wrap:wrap;align-items:center;justify-content:center;margin:10px 0}
+#quantum .qc-viz svg{max-width:100%;height:auto}
+#quantum .qc-bloch-ring{transform-origin:center;animation:qc-spin 14s linear infinite}
+#quantum .qc-pulse{animation:qc-pulse 2.4s ease-in-out infinite}
+@keyframes qc-spin{to{transform:rotate(360deg)}}
+@keyframes qc-pulse{0%,100%{opacity:.35}50%{opacity:1}}
+#quantum .qc-gates{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+#quantum .qc-gate{font:700 14px ui-monospace,Menlo,monospace;width:34px;height:34px;display:grid;place-items:center;border:1.5px solid var(--q);border-radius:8px;color:var(--q2);background:rgba(6,182,212,.08)}
+#quantum .qc-co{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;margin-bottom:6px}
+#quantum .qc-co h3{margin:0}
+#quantum .qc-tag{font-size:12px;color:var(--q2);letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+#quantum .qc-bars{display:grid;gap:8px;margin:14px 0}
+#quantum .qc-bar{display:grid;grid-template-columns:150px 1fr 90px;gap:10px;align-items:center;font-size:13px;color:var(--mute)}
+#quantum .qc-bar i{display:block;height:10px;border-radius:99px;background:linear-gradient(90deg,var(--q),var(--q2))}
+#quantum .qc-bar b{color:var(--text);font-weight:600;text-align:right}
+@media(max-width:640px){#quantum .qc-bar{grid-template-columns:90px 1fr 70px}}
+#quantum .qc-note{font-size:13px;color:#6b7194}
+#quantum details ul{padding-left:20px;color:var(--mute);font-size:14px;margin-top:8px}
+#quantum details li{margin:4px 0;word-break:break-word}

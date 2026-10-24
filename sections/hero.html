@@ -1,1 +1,47 @@
-<section class="sec" id="overview"><div class="container">STUB hero</div></section>
+<section class="sec" id="overview"><div class="container">
+<div class="hero-wrap">
+<div>
+<div class="eyebrow ai">Research &amp; business guide · October 2026</div>
+<h1>Superintelligence <span class="grad">×</span> Quantum Computing</h1>
+<p class="hero-sub">Are they connected, or is "quantum AI" mostly a marketing category? A source-labelled look at what is proven, what is plausible, and what is hype, plus where the business value actually sits.</p>
+</div>
+<svg class="hero-vis" viewBox="0 0 340 300" role="img" aria-label="Two overlapping glowing circles: AI in purple and Quantum in cyan, with orbiting dots">
+<defs><radialGradient id="hero-ga"><stop offset="0" stop-color="#8b5cf6" stop-opacity=".75"/><stop offset="1" stop-color="#8b5cf6" stop-opacity=".12"/></radialGradient>
+<radialGradient id="hero-gq"><stop offset="0" stop-color="#06b6d4" stop-opacity=".75"/><stop offset="1" stop-color="#06b6d4" stop-opacity=".12"/></radialGradient>
+<filter id="hero-bl"><feGaussianBlur stdDeviation="3"/></filter></defs>
+<g class="hero-a"><circle cx="125" cy="150" r="82" fill="url(#hero-ga)" filter="url(#hero-bl)"/><circle cx="125" cy="150" r="82" fill="none" stroke="#c084fc" stroke-width="1.5"/></g>
+<g class="hero-b"><circle cx="215" cy="150" r="82" fill="url(#hero-gq)" filter="url(#hero-bl)"/><circle cx="215" cy="150" r="82" fill="none" stroke="#67e8f9" stroke-width="1.5"/></g>
+<g class="hero-orbit"><circle cx="170" cy="40" r="5" fill="#fcd34d"/><circle cx="170" cy="260" r="3.5" fill="#c084fc"/></g>
+<g class="hero-orbit2"><circle cx="40" cy="150" r="4" fill="#67e8f9"/><circle cx="300" cy="150" r="3" fill="#fcd34d"/></g>
+<text x="95" y="155" fill="#fff" text-anchor="middle">AI</text><text x="245" y="155" fill="#fff" text-anchor="middle">QUANTUM</text>
+<text x="170" y="287" fill="#9aa0c0" text-anchor="middle" style="font-size:11px">overlap: security + hybrid HPC</text>
+</svg>
+</div>
+
+<div class="grid g4 reveal">
+<div class="card stat ai"><div class="num grad">0</div><div class="lbl">quantum computers needed by today's frontier AI. It runs on classical GPUs/TPUs.</div><div class="src">Research note 03 · background knowledge</div></div>
+<div class="card stat q"><div class="num" style="color:var(--q2)">&lt;1M</div><div class="lbl">noisy qubits could factor RSA-2048 in under a week (down from 20M in 2019). Today's machines have ~100s of useful qubits.</div><div class="src">Gidney 2025 · published resource estimate</div></div>
+<div class="card stat q"><div class="num" style="color:var(--q2)">28–49%</div><div class="lbl">expert odds of a cryptographically relevant quantum computer within 10 years (51–70% within 15).</div><div class="src">Global Risk Institute 2025 · 26-expert survey, opinion</div></div>
+<div class="card stat ai"><div class="num" style="color:var(--ai2)">Nov 2024</div><div class="lbl">AlphaQubit: an AI decoder beat other decoders on real Google qubit data, but is too slow for real-time use.</div><div class="src">Nature 635 · peer-reviewed</div></div>
+</div>
+
+<h2 class="hero-h">In 60 seconds</h2>
+<div class="callout">
+<p class="hero-short">Is there a relationship? Yes, but it is asymmetric, and narrower than the hype suggests.</p>
+<ul class="hero-sum">
+<li><b>ASI does not need quantum.</b> No credible roadmap to AGI/ASI requires a quantum computer, and there is no evidence that general intelligence requires quantum physics. <span class="badge fact">Established</span></li>
+<li><b>AI helps quantum far more than quantum helps AI today.</b> AI already works on error-correction decoding, code and circuit discovery, and compilation. Quantum speedups for machine learning remain mostly theoretical, and classical "dequantization" removed several headline cases. <span class="badge plausible">Mixed: some peer-reviewed, much is preprint or vendor</span></li>
+<li><b>The real overlap is security.</b> Shor's algorithm threatens RSA and elliptic-curve cryptography whether or not AI exists. AI mainly changes the tempo of attack and defence. NIST post-quantum standards are final. <span class="badge fact">Established</span></li>
+<li><b>The other overlap is hybrid HPC.</b> GPUs are becoming the control, decoding and simulation layer of quantum computers (NVIDIA NVQLink, CUDA-Q). Those are vendor-announced products. <span class="badge claim">Vendor claim</span></li>
+<li><b>Hype to discount:</b> "quantum will train LLMs or deliver AGI", and "quantum will fix AI's energy bill". <span class="badge hype">Unsupported</span></li>
+</ul>
+</div>
+
+<h2 class="hero-h">Key takeaways</h2>
+<div class="grid g3 reveal">
+<div class="card ai"><div class="eyebrow ai">Takeaway 1</div><h3>Decoupled by default</h3><p>Frontier AI progresses on classical silicon. Quantum matures on its own timeline: IBM, Quantinuum and Google claim fault tolerance around 2029–2033. The research calls decoupling the most likely near-term scenario.</p></div>
+<div class="card q"><div class="eyebrow q">Takeaway 2</div><h3>AI is quantum's best tool</h3><p>The strongest evidence points from AI to quantum. Examples: AlphaQubit decoding, and IBM's LLM-guided search that found 465 candidate error-correcting codes (IBM says their practical value is still to be investigated). Many 2026 results are preprints or vendor reports.</p></div>
+<div class="card biz"><div class="eyebrow biz">Takeaway 3</div><h3>Act on security, not on hype</h3><p>The actionable overlap is cryptography. Finish post-quantum migration, build crypto-agility, and treat long-lived secrets as already exposed to harvest-now-decrypt-later. Migration complexity, not cryptanalysis, is the bottleneck for most organizations.</p></div>
+</div>
+<p class="src-note">Source: research note 03 (relationship). Labels follow its evidence tags: peer-reviewed or primary, vendor claim, or background knowledge. Fault-tolerant quantum machines at useful scale do not yet exist.</p>
+</div></section>

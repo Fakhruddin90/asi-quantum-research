@@ -1,0 +1,33 @@
+/* Relationship section extras (prefix rel-) */
+.rel-answer{font-size:clamp(26px,3.6vw,40px);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin:6px 0 18px;max-width:900px}
+.rel-answer em{font-style:normal}
+.rel-tldr{display:grid;gap:12px;margin:18px 0 8px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.rel-tldr div{padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:var(--card);font-size:14.5px;color:var(--mute)}
+.rel-tldr b{display:block;color:var(--text);margin-bottom:2px}
+.rel-diagram{background:linear-gradient(135deg,rgba(139,92,246,.08),rgba(6,182,212,.08));border:1px solid var(--line);border-radius:var(--r);padding:20px;margin:26px 0}
+.rel-diagram svg{width:100%;height:auto;display:block}
+.rel-diagram text{font-family:Inter,system-ui,sans-serif;fill:#e8eaf6}
+.rel-diagram .rel-sub{fill:#9aa0c0;font-size:13px}
+.rel-diagram .rel-lbl{font-size:14px;font-weight:700}
+.rel-h{margin:54px 0 6px}
+.rel-sublead{color:var(--mute);max-width:760px;margin-bottom:10px}
+.rel-card h3{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.rel-card .badge{margin-left:auto}
+.rel-card p+p,.rel-card ul+p{margin-top:8px}
+.rel-split{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.rel-col-h{display:flex;align-items:center;gap:10px;margin:40px 0 4px}
+.rel-col-h .rel-dot{width:12px;height:12px;border-radius:50%}
+.rel-dot.ai{background:var(--ai);box-shadow:0 0 14px var(--ai)}.rel-dot.q{background:var(--q);box-shadow:0 0 14px var(--q)}
+.rel-verdict{border:2px solid transparent;border-radius:calc(var(--r) + 4px);padding:26px;margin:26px 0;background:linear-gradient(var(--bg2),var(--bg2)) padding-box,linear-gradient(120deg,var(--ai),var(--q)) border-box}
+.rel-verdict .tablewrap{margin:14px 0 0}
+.rel-verdict td:first-child{width:56%;color:var(--text)}
+.rel-verdict td small{display:block;color:#6b7194;margin-top:3px;font-size:12.5px}
+.rel-tag{font-size:12px;color:#6b7194}
+.rel-scn{position:relative}
+.rel-scn .rel-like{position:absolute;top:18px;right:18px}
+.rel-scn h3{padding-right:110px}
+.rel-bottom{font-size:20px;font-weight:600;text-align:center;max-width:860px;margin:30px auto 10px;line-height:1.4}
+.rel-srcs h4{margin:14px 0 4px;color:var(--q2)}
+.rel-srcs ul{padding-left:18px;font-size:13.5px;color:var(--mute)}
+.rel-srcs li{margin:3px 0;word-break:break-word}
+@media(max-width:640px){.rel-card .badge{margin-left:0}.rel-scn .rel-like{position:static;display:inline-block;margin-bottom:8px}.rel-scn h3{padding-right:0}.rel-verdict{padding:14px}}

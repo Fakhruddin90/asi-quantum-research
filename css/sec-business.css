@@ -1,0 +1,11 @@
+#business .biz-ind{display:flex;flex-direction:column;gap:10px}
+#business .biz-row{padding-left:12px;border-left:3px solid var(--line)}
+#business .biz-row.ai{border-color:var(--ai)}#business .biz-row.q{border-color:var(--q)}#business .biz-row.c{border-color:var(--biz)}
+#business .biz-row h4{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}
+#business .biz-row p{font-size:14px}
+#business .biz-steps{padding-left:20px;margin-top:8px}
+#business .biz-steps li{margin-bottom:10px}
+#business .biz-steps b{color:var(--text)}
+#business .biz-src{columns:2 340px;padding-left:18px;font-size:13.5px}
+#business .biz-src li{margin-bottom:6px;break-inside:avoid}
+#business h3{margin-top:0}
